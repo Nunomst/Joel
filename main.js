@@ -1,24 +1,33 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+            fetch('https://fakestoreapi.com/products',{
+              method:"POST",
+              body:JSON.stringify(
+                  {
+                      category: 'electronic',
+                      description: 'lorem ipsum set',
+                      image: 'https://i.pravatar.cc',
+                      price: 13.5,
+                      rating: {
+                          rate: 4.5,
+                          count: 12
+                      },
+                      title: 'test product'
+                      
+                  }
+              )
+          })
+              .then(res=>res.json())
+              .then(json=>console.log(json))
+  
 
-setupCounter(document.querySelector('#counter'))
+let cartIcon = document.getElementById("cart-icon");
+
+cartIcon.addEventListener("mouseover", function(){
+    cartIcon.style.color = "#DEBC42"
+    cartIcon.classList.add("fa-beat");
+});
+
+cartIcon.addEventListener("mouseout", function() {
+  cartIcon.classList.remove("fa-beat");
+  cartIcon.style.color = "black";
+});
