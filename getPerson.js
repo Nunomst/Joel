@@ -1,6 +1,3 @@
-import { Product } from './Product.js';  
-
-
 export async function getPerson()
 {
     fetch("https://randomuser.me/api/?results=2")
