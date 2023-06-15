@@ -53,10 +53,13 @@ table {
 
 /* #endregion */
 
-/* :root{
-  
-} */
+:root{
+  --color-icons: #111827;
+} 
 
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 
 .navbar {
   display: flex;
@@ -70,6 +73,7 @@ table {
 
 #logo {
   height: 150px;
+  margin-top: -40px; /* Ajuste a margem superior para centralizar o logo verticalmente */
 }
 
 .logo {
@@ -85,4 +89,59 @@ table {
 }
 
 
+.search-container{
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
 
+#search-icon:visited{
+  text-decoration:none;
+  color: var(--font-icons);
+}
+
+#search-icon:hover{
+  color: #cbd5e1;
+}
+
+.input-search{
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 300px;
+  border: none;
+  border-bottom: 2px solid #95979c;
+  border-radius: 1px;
+}
+
+.input-search:active{
+  background-color: #cbd5e1;
+  outline: none;
+}
+
+.input-search:hover{
+  	background-color: #f1f1f1;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+.input-search:focus{
+  background-color: #f1f1f1;
+  border-radius: 2px;
+  outline: none;
+}
+
+.cartGo{
+  display: flex;
+  background-color: #fcd34d;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 25px;
+  box-shadow: 2px 2px #b9b9b9;
+}
+
+.cartGo p{
+  margin: 5px;
+}
