@@ -4,13 +4,70 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/821df074d5.js" crossorigin="anonymous"></script>
-    <title>Joelry</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
-    <i class="fa-solid fa-magnifying-glass"> </i>
-    <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
-    <script type="module" src="/main.js"></script>
+    <section class="navbar-top-section">
+    <div class="navbar-top">
+      <nav id="navbar">
+        <a href="#" class="brand">
+          <span>
+           <img src="public/assets/logos/colar minimal.png" alt="">
+          </span>
+          <span>Deki Deki</span>
+        </a>
+        <ul>
+          <li style="--i:0;">
+            <a href="#">
+              <span>
+                Shop
+              </span>
+              <span>
+                <ion-icon name="pricetags-outline"></ion-icon>
+              </span>
+            </a>
+          </li>
+          <li style="--i:1;">
+            <a href="#">
+              <span>
+                Cart
+              </span>
+              <span>
+                <ion-icon name="cart-outline"></ion-icon>
+              </span>
+            </a>
+          </li>
+          <li style="--i:2;">
+            <a href="#">
+              <span>
+                About
+              </span>
+              <span><ion-icon name="reader-outline"></ion-icon></span>
+            </a>
+          </li>
+          <li style="--i:3;">
+            <a href="#">
+              <span>
+                Contact
+              </span>
+              <span><ion-icon name="mail-outline"></ion-icon></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <section>
+    <div class="bottom-bar">
+      <ion-icon name="pricetags-outline" class="icon" onclick="change(this)"></ion-icon>
+      <ion-icon name="cart-outline" class="icon" onclick="change(this)"></ion-icon>
+      <ion-icon name="reader-outline" class="icon" onclick="change(this)"></ion-icon>
+      <ion-icon name="mail-outline" class="icon" onclick="change(this)"></ion-icon>
+    </div>
+  </section>
   </body>
 </html>
