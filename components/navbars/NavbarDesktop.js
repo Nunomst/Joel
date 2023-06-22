@@ -1,13 +1,15 @@
 export function navbarDesktop() {
     let navbar = document.createElement('div');
-    navbar.innerHTML = `    <section class="navbar-top-section">
+    navbar.innerHTML = `     <section class="navbar-top-section">
     <div class="navbar-top">
       <nav id="navbar">
         <a href="#" class="brand">
           <span>
            <img src="public/assets/logos/colar minimal.png" alt="">
           </span>
-          <span>Deki Deki</span>
+          <span>
+            <img src="public/assets/logos/DekiDeki Jewelry-logos_black.png" alt="">
+          </span>
         </a>
         <ul>
           <li style="--i:0;">
