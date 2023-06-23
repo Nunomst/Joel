@@ -16,10 +16,10 @@
 /* #region navbar */
 
 .navbar-top-section {
-  min-height: 18vh;
+  min-height: 200vh;
 }
 
-.navbar-top nav{
+.navbar-top nav {
   position: fixed;
   top: 0;
   width: 100%;
@@ -29,8 +29,60 @@
   display: flex;
   transition: 0.5s;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; 
   overflow: hidden;
+  
+}
+
+
+  .cartNavItem {
+    position: relative;
+    transform:scale(1.9);
+    transform-origin: center;
+  }
+
+.navbar-top .brand {
+  position: relative;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center; 
+}
+
+.navbar-top .brand span {
+  transition: 0.5s;
+  display: block;
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-top .brand span:nth-child(1) {
+  position: absolute;
+  transform: translateY(-100px);
+  font-size: 1.5em;
+}
+
+.navbar-top .icon .brand span:nth-child(1) {
+  transform: translateY(12px);
+  color: #fff;
+}
+
+.navbar-top .icon .brand span:nth-child(2) {
+  transform: translateY(100px);
+}
+
+.navbar-top ul {
+  display: flex;
+  list-style: none;
+  margin-bottom: -10px;
+}
+
+.navbar-top ul li {
+  margin: 0 45px; 
 }
 
 .navbar-top .icon
@@ -38,108 +90,55 @@
   background: #444;
 }
 
-.navbar-top ul{
-  display: flex;
-}
-
-.navbar-top ul li{
-  list-style: none;
-}
-
-.navbar-top .brand
-{
-  position: relative;
-  font-size: 1.8em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-  padding: 5px 0;
-  overflow: hidden;
-  display: flex;
-}
-
-
-
-.navbar-top .brand span
-{
-  transition: 0.5s;
-  display: block;
-  position: relative;
-  display: inline-block;
-}
-
-.navbar-top .brand span:nth-child(1)
-{
-  position: absolute;
-  transform: translateY(-100px);
-  font-size: 1.5em;
-}
-
-.navbar-top .icon .brand span:nth-child(1)
-{
-  transform: translateY(0px);
-  color: #fff;
-}
-
-.navbar-top .icon .brand span:nth-child(2)
-{
-  transform: translateY(100px);
-}
-
-.navbar-top ul li a 
-{
+.navbar-top ul li a {
   position: relative;
   color: #333;
   padding: 5px 20px;
-  font-size : 1.1em;
+  font-size: 1.1em;
   text-decoration: none;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
- align-items: center;
- overflow: hidden;
+  align-items: center;
+  overflow: hidden;
 }
 
-.navbar-top .icon ul li a 
-{
-  color : #fff;
+.navbar-top .icon span {
+  color: #fff;
 }
 
-.navbar-top ul li a span
-{
-  transform: 0.5s;
+.navbar-top ul li a span {
+  transition: 0.5s;
   transition-delay: calc(0.05s * var(--i));
 }
 
-.navbar-top ul li a span:nth-child(2)
-{
+.navbar-top ul li a span:nth-child(2) {
   position: absolute;
-  transform: translateY(40px);
+  transform: translateY(35px);
   font-size: 1.6em;
 }
 
-.navbar-top .icon ul li a span:nth-child(1)
-{
+.navbar-top .icon ul li a span:nth-child(1) {
   transform: translateY(-30px);
 }
 
-.navbar-top .icon ul li a span:nth-child(2)
-{
+.navbar-top .icon ul li a span:nth-child(2) {
   transform: translateY(2px);
 }
 
-.navbar-top ul li:hover a span:nth-child(2)
-{
+.navbar-top ul li:hover a span:nth-child(2) {
   color: #DEBC42;
 }
 
-.navbar-top .brand span img
-{
-  width: 180px;
+.navbar-top .brand span img {
+  width:180px;
   height: auto;
   box-shadow: 1 1 1px 1px rgba(0, 0, 0, 0);
-  margin-top: 31px;
+  margin: 0 40px; 
+  /*  make it responsive */
+  max-width: 100%;
+  display: block;
 }
 
 .bottom-bar {
@@ -154,7 +153,6 @@
   margin-top: 20em;
   max-width: 23em;
   margin-bottom: 0.5em;
-  /* round the bottom corners*/
   width: 100%;
   background-color: #eee;
   text-align: center;
@@ -173,14 +171,15 @@
   border-radius: 100%;
   border: 7px solid #eee;
 }
-.bottom-bar .active{
+.bottom-bar .active {
   transform: scale(1.25) translateY(-1em);
-  background: linear-gradient(135deg, #deb315,#ffef97);
-  border: 5px solid #adaaaa;
-  color: white;
+  background: linear-gradient(135deg, #FFFFFF, #ebebeb); 
+  border: 5px solid #ffe791; /* Light gray border */
+  color: #333333; /* Dark gray text */
 }
 
-@media (max-width: 768px)
+
+@media (max-width: 1012px)
 {
   .navbar-top
   {
@@ -193,8 +192,6 @@
 
   }
 }
-
-
 /* #endregion */
 
 /* #region search-container */
