@@ -1,97 +1,197 @@
-/* #region cssReset */
-
-*{
-  /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-}
-
-/* #endregion */
-
-/* #region root and general definitions */
+/* #region root + general definitions + css reset */
 
 :root{
   --color-icons: #111827;
 } 
-
+ 
 *{
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* #endregion */
 
 /* #region navbar */
 
-.navbar {
+.navbar-top-section {
+  min-height: 18vh;
+}
+
+.navbar-top nav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  padding: 0 50px;
   display: flex;
-  height: 70px;
-  background-color: rgb(182, 177, 165);
+  transition: 0.5s;
   align-items: center;
-  margin: 0 auto;
   justify-content: space-between;
-  padding: 0 20px;
+  overflow: hidden;
 }
 
-#logo {
-  height: 150px;
-  margin-top: -40px; /* Ajuste a margem superior para centralizar o logo verticalmente */
+.navbar-top .icon
+{
+  background: #444;
 }
 
-.logo {
-  align-self: flex-start;
-  gap: 20px;
-  display: inline-flex;
-}
-
-.buttons {
+.navbar-top ul{
   display: flex;
-  align-items: center;
+}
+
+.navbar-top ul li{
+  list-style: none;
+}
+
+.navbar-top .brand
+{
+  position: relative;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  padding: 5px 0;
+  overflow: hidden;
+  display: flex;
+}
+
+
+
+.navbar-top .brand span
+{
+  transition: 0.5s;
+  display: block;
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-top .brand span:nth-child(1)
+{
+  position: absolute;
+  transform: translateY(-100px);
+  font-size: 1.5em;
+}
+
+.navbar-top .icon .brand span:nth-child(1)
+{
+  transform: translateY(0px);
+  color: #fff;
+}
+
+.navbar-top .icon .brand span:nth-child(2)
+{
+  transform: translateY(100px);
+}
+
+.navbar-top ul li a 
+{
+  position: relative;
+  color: #333;
+  padding: 5px 20px;
+  font-size : 1.1em;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+ align-items: center;
+ overflow: hidden;
+}
+
+.navbar-top .icon ul li a 
+{
+  color : #fff;
+}
+
+.navbar-top ul li a span
+{
+  transform: 0.5s;
+  transition-delay: calc(0.05s * var(--i));
+}
+
+.navbar-top ul li a span:nth-child(2)
+{
+  position: absolute;
+  transform: translateY(40px);
+  font-size: 1.6em;
+}
+
+.navbar-top .icon ul li a span:nth-child(1)
+{
+  transform: translateY(-30px);
+}
+
+.navbar-top .icon ul li a span:nth-child(2)
+{
+  transform: translateY(2px);
+}
+
+.navbar-top ul li:hover a span:nth-child(2)
+{
+  color: #DEBC42;
+}
+
+.navbar-top .brand span img
+{
+  width: 180px;
+  height: auto;
+  box-shadow: 1 1 1px 1px rgba(0, 0, 0, 0);
+  margin-top: 31px;
+}
+
+.bottom-bar {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 20em;
+  max-width: 23em;
+  margin-bottom: 0.5em;
+  /* round the bottom corners*/
+  width: 100%;
+  background-color: #eee;
+  text-align: center;
+  padding: 5px;
+  border-radius: 20px 20px 20px 20px;
+  z-index: 999;
+}
+
+.bottom-bar .icon{
+  font-size: 1.3em;
+  padding: .5em;
+  margin: .5em;
+  margin-top: 0;
+  margin-bottom: auto;
+  transition: .25s ease-in-out;
+  border-radius: 100%;
+  border: 7px solid #eee;
+}
+.bottom-bar .active{
+  transform: scale(1.25) translateY(-1em);
+  background: linear-gradient(135deg, #deb315,#ffef97);
+  border: 5px solid #adaaaa;
+  color: white;
+}
+
+@media (max-width: 768px)
+{
+  .navbar-top
+  {
+    display: none;
+  }
+
+  .bottom-bar
+  {
+    display: block;
+
+  }
 }
 
 
@@ -101,7 +201,7 @@ table {
 
 .search-container{
   display: flex;
-  margin-top: 40px;
+  margin-top: 10px;
   align-items: center;
   justify-content: center;
 }
@@ -139,7 +239,6 @@ table {
 }
 
 .input-search:focus{
-  /* background-color: #f1f1f1; */
   border-radius: 2px;
   outline: none;
 }
@@ -161,6 +260,20 @@ table {
 .cartGo p{
   display: inline-flex;
   margin: 5px;
+  margin-left: 16px;
+}
+
+#lblCartCount {
+  font-size: 14px;
+  font-weight: bolder;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 6px;
+  vertical-align: top;
+  float: right;
+  border-radius: 10px;
+  margin-left: -12px;
+  margin-bottom: -20px;
 }
 
 /* #endregion */
@@ -176,10 +289,6 @@ table {
   justify-items: center;
   margin-top: 100px;
 }
-
-/* .products-grid-container{
-
-} */
 
 .products-grid-item{
   height: 300px;
