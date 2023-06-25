@@ -1,9 +1,8 @@
 /* #region reset */
 
-html, body, div, span, applet, object, iframe,
-h1, h3, h4, h5, h6, p, blockquote, pre,
+html, body, div, span, applet, object, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -47,23 +46,25 @@ table {
 
 /* #endregion */
 
-button {
+#send{
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: lightgray;
+  background-color: yellow;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 240px;
+  width: 250px;
+  justify-content: center;
+  font-weight: bold;
 }
-button:hover {
+#send:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+#send:focus,
+#send:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -82,7 +83,6 @@ button:focus-visible {
 #info
 {
   display: flex;
-  background-color: lightskyblue;
   justify-content: center;
 }
 
@@ -96,12 +96,87 @@ button:focus-visible {
 
 #map {
   margin-top: 10px;
-  margin-left: 150px;
+  margin-left: 75px;
   margin-bottom: 10px;
   flex-basis: 500px;
 }
 
-#street
+#contact-title
 {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+.contactos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+} 
+
+.users-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  max-width: 200px;
+}
+
+.user-info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.userName {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: bold; 
+}
+
+.contactButton{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: yellow;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 150px;
+  justify-content: center;
   margin-top: 10px;
+  font-weight: bold;
+}
+.contactButton:hover {
+  border-color: #646cff;
+}
+.contactButton:focus,
+.contactButton:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.role
+{
+  color: grey;
+}
+
+input
+{
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
