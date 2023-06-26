@@ -19,6 +19,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,26 +48,22 @@ table {
 /* #endregion */
 
 #send{
+  font-family: 'Montserrat', sans-serif;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: yellow;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  width: 250px;
+  background-color: #dabb43;
+  width: 75px;
   justify-content: center;
+  height: 35px;
   font-weight: bold;
+  margin-top: 325px;
+  margin-left: 150px;
 }
 #send:hover {
-  border-color: #646cff;
+  border-color: black;
 }
-#send:focus,
-#send:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 .logo
 {
@@ -84,21 +81,29 @@ table {
 {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
-#form {
-  flex-basis: 400px;
+#form 
+{
+  margin-left: 175px;
 }
 
-#form label {
+#form label 
+{
   margin-bottom: 5px;
 }
 
 #map {
   margin-top: 10px;
-  margin-left: 75px;
+  margin-left: 150px;
   margin-bottom: 10px;
   flex-basis: 500px;
+}
+
+#info-title
+{
+  text-align: center;
 }
 
 #contact-title
@@ -112,7 +117,24 @@ table {
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-} 
+  position: relative;
+}
+
+.contactos::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/assets/4.png);
+  background-repeat: no-repeat;
+  background-size: 22%;
+  background-position: bottom;
+  opacity: 0.5;
+  z-index: -1;
+}
+
 
 .users-container {
   display: flex;
@@ -147,26 +169,21 @@ table {
 }
 
 .contactButton{
+  font-family: 'Montserrat', sans-serif;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: yellow;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  background-color: #dabb43;
   width: 150px;
   justify-content: center;
   margin-top: 10px;
   font-weight: bold;
+  margin-bottom: 125px;
 }
 .contactButton:hover {
-  border-color: #646cff;
-}
-.contactButton:focus,
-.contactButton:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: black;
 }
 
 .role
@@ -179,4 +196,23 @@ input
   border-top: none;
   border-left: none;
   border-right: none;
+  width: 300px;
+}
+
+input::placeholder
+{
+  color: gray;
+}
+
+textarea
+{
+  width: 300px;
+  border: 1px solid;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+textarea::placeholder
+{
+  color: gray;
 }

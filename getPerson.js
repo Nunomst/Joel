@@ -26,7 +26,7 @@ export async function getPerson() {
           userDiv.appendChild(userImg);
       
           const userName = document.createElement("p");
-          userName.textContent = "Name: " + user[i].name.first + " " + user[i].name.last;
+          userName.textContent = user[i].name.first + " " + user[i].name.last;
           userName.classList.add("userName")
           userDiv.appendChild(userName);
 
