@@ -57,24 +57,27 @@ table {
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  height: 300px;
+  height: 400px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
 }
-
 
 .carousel img {
-  width: 1920px;
+  flex-shrink: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease-in-out;
-}
+  transition: 0.7s ease-in-out;
 
+}
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-  color: white;
+  color: black;
   font-size: 2rem;
   border: none;
   outline: none;
@@ -83,12 +86,13 @@ table {
 
 .prev-btn {
   left: 10px;
+  z-index: 2;
 }
 
 .next-btn {
   right: 10px;
+  z-index: 2;
 }
-
 
 #button-container 
 {
@@ -171,8 +175,8 @@ table {
   position: relative;
 }
 
-.contactos::after 
-{
+.contactos::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -182,7 +186,7 @@ table {
   background-repeat: no-repeat;
   background-size: 22%;
   background-position: bottom;
-  opacity: 0.2;
+  opacity: 0.5;
   z-index: -1;
 }
 
