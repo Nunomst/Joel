@@ -53,7 +53,12 @@ table {
 
 /* #endregion */
 
-.carousel {
+.transition-none {
+  transition: none !important;
+}
+
+.carousel 
+{
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -63,7 +68,8 @@ table {
   margin-bottom: 30px;
 }
 
-.carousel img {
+.carousel img 
+{
   flex-shrink: 0;
   width: 100%;
   height: 100%;
@@ -71,7 +77,8 @@ table {
   transition: 1.7s ease-in-out;
 }
 
-.carousel-btn {
+.carousel-btn 
+{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -83,12 +90,14 @@ table {
   cursor: pointer;
 }
 
-.prev-btn {
+.prev-btn 
+{
   left: 10px;
   z-index: 2;
 }
 
-.next-btn {
+.next-btn 
+{
   right: 10px;
   z-index: 2;
 }
@@ -174,7 +183,8 @@ table {
   position: relative;
 }
 
-.contactos::after {
+.contactos::after 
+{
   content: "";
   position: absolute;
   top: 0;
@@ -209,7 +219,7 @@ table {
   text-align: center;
   margin-left: 100px;
   margin-right: 100px;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .user-info img 
@@ -258,7 +268,7 @@ input
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 450px;
+  width: 470px;
 }
 
 input::placeholder 
@@ -283,34 +293,41 @@ textarea::placeholder
 
 @media (max-width: 1230px) 
 {
-  #info {
+  #info 
+  {
     flex-direction: column;
     align-items: center;
   }
 
   #form,
-  #map {
+  #map 
+  {
     margin: 0;
   }
 
-  #map {
+  #map 
+  {
     margin-top: 15px;
   }
 
-  #button-container {
+  #button-container 
+  {
     margin-top: 30px;
   }
 
-  .contactos::after {
+  .contactos::after 
+  {
     background-size: 40%;
   }
 
-  .user-info {
+  .user-info 
+  {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .contactButton {
+  .contactButton 
+  {
     margin-bottom: 30px;
   }
 
@@ -323,30 +340,40 @@ textarea::placeholder
 
 @media (max-width: 480px) 
 {
-  .users-container {
+  .users-container 
+  {
     flex-direction: column;
     align-items: center;
   }
+  
+  .user-info 
+  {
+    max-width: 200px;
+  }
 
   input,
-  textarea {
+  textarea 
+  {
     text-align: center;
     width: 350px;
     margin-bottom: 5px;
   }
 
-  #map, iframe {
+  #map, iframe 
+  {
     width: 350px;
     height: 250px;
   }
 
-  #info {
+  #info 
+  {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #button-container {
+  #button-container 
+  {
     margin-top: 75px;
     text-align: center;
   }

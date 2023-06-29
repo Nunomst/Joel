@@ -4,6 +4,7 @@ export function carousel() {
   const nextBtn = document.getElementById('nextBtn');
   const images = carousel.getElementsByTagName('img');
   let currentIndex = 0;
+  let timer;
 
   function showImage(index) {
     if (index < 0 || index >= images.length) {
@@ -13,7 +14,7 @@ export function carousel() {
     for (let i = 0; i < images.length; i++) {
       images[i].style.transform = `translateX(${i - index * 101}%)`;
     }
-  }      
+  }
 
   function nextImage() {
     currentIndex++;
@@ -22,7 +23,7 @@ export function carousel() {
     }
     showImage(currentIndex);
   }
-  
+
   function prevImage() {
     currentIndex--;
     if (currentIndex < 0) {
@@ -31,8 +32,27 @@ export function carousel() {
     showImage(currentIndex);
   }
 
-  prevBtn.addEventListener('click', prevImage);
-  nextBtn.addEventListener('click', nextImage);
+  function startCarousel() {
+    timer = setInterval(nextImage, 3000);
+  }
+
+  function stopCarousel() {
+    clearInterval(timer);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    stopCarousel();
+    prevImage();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    stopCarousel();
+    nextImage();
+  });
+
+  carousel.addEventListener('mouseenter', stopCarousel);
+  carousel.addEventListener('mouseleave', startCarousel);
 
   showImage(currentIndex);
+  startCarousel();
 }
