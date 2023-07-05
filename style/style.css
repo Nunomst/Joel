@@ -53,53 +53,71 @@ table {
 
 /* #endregion */
 
-.transition-none {
-  transition: none !important;
-}
-
-.carousel 
+.carousel-container 
 {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  height: 350px;
+  max-width: 100%;
+  width: 100%;
   position: relative;
-  width: 100%;
-  margin-bottom: 30px;
+  margin: auto;
 }
 
-.carousel img 
+.slides img
 {
-  flex-shrink: 0;
   width: 100%;
-  height: 100%;
+  height: 400px;
   object-fit: cover;
-  transition: 1.7s ease-in-out;
 }
 
-.carousel-btn 
+.prev, .next 
 {
+  cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: black;
-  font-size: 2rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.prev-btn 
+.next 
 {
-  left: 10px;
-  z-index: 2;
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.next-btn 
+
+.prev:hover, .next:hover 
 {
-  right: 10px;
-  z-index: 2;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.active, .dot:hover 
+{
+  background-color: #717171;
+}
+
+
+.fade 
+{
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade 
+{
+  from 
+  {
+    opacity: .4;
+  } 
+  to 
+  {
+    opacity: 1;
+  }
 }
 
 #button-container 
@@ -118,6 +136,7 @@ table {
   width: 75px;
   height: 40px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
 }
 
 #send:hover 
@@ -146,7 +165,8 @@ table {
 
 #form 
 {
-  margin-right: 100px;
+  margin-left: -10px;
+  margin-right: 200px;
 }
 
 #form label 
@@ -156,7 +176,6 @@ table {
 
 #map 
 {
-  margin-left: 200px;
   margin-bottom: 15px;
   flex-basis: 250px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
@@ -164,8 +183,9 @@ table {
 
 #info-title 
 {
+  margin-top: 50px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 #contact-title 
@@ -268,7 +288,8 @@ input
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 470px;
+  margin-bottom: 20px;
+  width: 400px;
 }
 
 input::placeholder 
@@ -276,9 +297,13 @@ input::placeholder
   color: gray;
 }
 
+input:focus, textarea:focus {
+  outline: none;
+}
+
 textarea 
 {
-  width: 450px;
+  width: 400px;
   border: 1px solid;
   resize: none;
   font-family: 'Montserrat', sans-serif;
@@ -340,6 +365,11 @@ textarea::placeholder
 
 @media (max-width: 480px) 
 {
+  .prev, .next
+  {
+    font-size: 11px
+  }
+
   .users-container 
   {
     flex-direction: column;

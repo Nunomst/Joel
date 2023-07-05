@@ -1,58 +1,45 @@
-export function carousel() {
-  const carousel = document.getElementById('carousel');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const images = carousel.getElementsByTagName('img');
-  let currentIndex = 0;
-  let timer;
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slides");
 
-  function showImage(index) {
-    if (index < 0 || index >= images.length) {
-      return;
-    }
 
-    for (let i = 0; i < images.length; i++) {
-      images[i].style.transform = `translateX(${i - index * 101}%)`;
-    }
+  if (n > slides.length) 
+  {
+    slideIndex = 1
+  }  
+
+  if (n < 1) 
+  {
+    slideIndex = slides.length
   }
 
-  function nextImage() {
-    currentIndex++;
-    if (currentIndex >= images.length) {
-      currentIndex = 0;
-    }
-    showImage(currentIndex);
+  for (i = 0; i < slides.length; i++) 
+  {
+    slides[i].style.display = "none";  
   }
 
-  function prevImage() {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = images.length - 1;
-    }
-    showImage(currentIndex);
-  }
-
-  function startCarousel() {
-    timer = setInterval(nextImage, 3000);
-  }
-
-  function stopCarousel() {
-    clearInterval(timer);
-  }
-
-  prevBtn.addEventListener('click', () => {
-    stopCarousel();
-    prevImage();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    stopCarousel();
-    nextImage();
-  });
-
-  carousel.addEventListener('mouseenter', stopCarousel);
-  carousel.addEventListener('mouseleave', startCarousel);
-
-  showImage(currentIndex);
-  startCarousel();
+  slides[slideIndex-1].style.display = "block";  
 }
+
+let slideIndex = 1;
+
+const next = document.getElementsByClassName("next");
+const prev = document.getElementsByClassName("prev");
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+next[0].onclick = function() {
+  plusSlides(1);
+};
+
+prev[0].onclick = function() {
+  plusSlides(-1);
+};
+
+showSlides(slideIndex);

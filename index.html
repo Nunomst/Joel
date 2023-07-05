@@ -10,15 +10,25 @@
 </head>
 <body>
 
-<div class="logo">
-  <div id="carousel" class="carousel">
-    <img src="/assets/1.png" alt="Image 1">
-    <img src="/assets/2.png" alt="Image 2">
-    <img src="/assets/3.png" alt="Image 3">
-    <button id="prevBtn" class="carousel-btn prev-btn">&#8249;</button>
-    <button id="nextBtn" class="carousel-btn next-btn">&#8250;</button>
-  </div>
-</div>
+  <div class="carousel-container">
+
+    <div class="slides fade">
+      <img src="/assets/1.png" style="width:100%">
+    </div>
+    
+    <div class="slides fade">
+      <img src="/assets/2.png" style="width:100%">
+    </div>
+    
+    <div class="slides fade">
+      <img src="/assets/3.png" style="width:100%">
+    </div>
+    
+    <a class="prev">❮</a>
+    <a class="next">❯</a>
+    
+    </div>
+    <br>
 
   <h1 id="info-title">Contact Us</h1>
 
@@ -35,8 +45,8 @@
 
     <div id="map">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.3377058058095!2d-8.643015823376942!3d41.25798240401109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2467ea8b0012d9%3A0x5a575ae402fe35ee!2sR.%20Maria%20Cust%C3%B3dia%20da%20Silva%2039%2C%204470-460%20Campos%20Verdes!5e0!3m2!1spt-PT!2spt!4v1686883419299!5m2!1spt-PT!2spt"
-        width="450"
-        height="285"
+        width="400"
+        height="345"
         style="border:0;"
         allowfullscreen="yes"
         loading="lazy"
@@ -56,6 +66,7 @@
     </div>
   </div>
 
+  <script type="module" src="/carousel.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 </html>
