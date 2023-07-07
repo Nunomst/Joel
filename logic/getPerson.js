@@ -11,7 +11,7 @@ export async function getPerson() {
       });
   
       function createUser(user) {
-        const usersContainer = document.querySelector(".users-container");
+        const usersContainer = document.querySelector(".staff-container");
       
         for (let i = 0; i < user.length; i++) {
           const userContainer = document.createElement("div");
