@@ -52,6 +52,7 @@ export function navbarDesktop() {
             <span>
               <ion-icon name="cart-outline"></ion-icon>
             </span>
+            <label id="lblCartCount">1</label>
           </a>
         </li>
       </ul>

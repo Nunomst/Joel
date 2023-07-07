@@ -10,9 +10,8 @@ export function searchComponent() {
         </form>
         <div class="cartGo">
           <i class="fa-solid fa-cart-shopping"></i>
-          <p>Ir para o carrinho</p>
-          </div>
-          <label id="lblCartCount">1</label>
+          <p>Go to cart</p>
+        </div>
     </div>`
     return search;
 }
