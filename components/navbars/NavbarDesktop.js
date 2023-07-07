@@ -1,18 +1,10 @@
 export function navbarDesktop() {
     let navbar = document.createElement('div');
-    navbar.innerHTML = `     <section class="navbar-top-section">
+    navbar.innerHTML = `        <section class="navbar-top-section">
     <div class="navbar-top">
       <nav id="navbar">
-        <a href="#" class="brand">
-          <span>
-           <img src="public/assets/logos/colar minimal.png" alt="">
-          </span>
-          <span>
-            <img src="public/assets/logos/DekiDeki Jewelry-logos_black.png" alt="">
-          </span>
-        </a>
-        <ul>
-          <li style="--i:0;">
+        <ul class="menu-links">
+          <li>
             <a href="#">
               <span>
                 Shop
@@ -22,30 +14,44 @@ export function navbarDesktop() {
               </span>
             </a>
           </li>
-          <li style="--i:1;">
-            <a href="#">
-              <span>
-                Cart
-              </span>
-              <span>
-                <ion-icon name="cart-outline"></ion-icon>
-              </span>
-            </a>
-          </li>
-          <li style="--i:2;">
+          <li>
             <a href="#">
               <span>
                 About
               </span>
-              <span><ion-icon name="reader-outline"></ion-icon></span>
+              <span>
+                <ion-icon name="reader-outline"></ion-icon>
+              </span>
             </a>
           </li>
-          <li style="--i:3;">
+        </ul>
+        <a href="#" class="brand">
+          <span>
+            <img src="/assets/images/color minimal.png" alt="">
+          </span>
+          <span>
+            <img src="/public/assets/images/deki deki logo transparent gold.png" alt="">
+          </span>
+        </a>
+        <ul class="menu-links">
+          <li>
             <a href="#">
               <span>
-                Contact
+                Contacts
               </span>
-              <span><ion-icon name="mail-outline"></ion-icon></span>
+              <span>
+                <ion-icon name="mail-outline"></ion-icon>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>
+                <ion-icon name="cart-outline" class="cartNavItem"></ion-icon>
+              </span>
+              <span>
+                <ion-icon name="cart-outline"></ion-icon>
+              </span>
             </a>
           </li>
         </ul>
