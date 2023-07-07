@@ -31,7 +31,6 @@ export function createProductCard() {
 
   modalActivators.forEach((modalActivator) => {
     modalActivator.addEventListener('click', () => {
-      console.log('clicado');
       const modal = createModal();
       document.body.appendChild(modal);
       showModal();
@@ -45,8 +44,8 @@ export function createProductCard() {
 export function addModalCloseEvent() {
   const modal = document.getElementById('modalSelector');
 
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
       hideModal();
       modal.remove();
     }

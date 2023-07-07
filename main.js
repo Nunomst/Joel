@@ -6,6 +6,7 @@ import {highlightNavItem} from './logic/navbar/highlightNavItem';
 import { searchComponent } from './components/search/SearchComponent';
 import { productsGrid } from './components/productsGrid/ProductsGrid.js';
 import { createProductCard } from './components/productsGrid/ProductsGrid.js';
+import { getProducts } from './services/getProducts';
 
 
 let appDiv = document.getElementById('app');
@@ -24,3 +25,5 @@ for (let i = 0; i < 27; i++) {
 
 handleScroll();
 highlightNavItem();
+// getProducts();
+console.log(getProducts())

@@ -650,10 +650,6 @@
 }
 
 @media only screen and (max-width: 400px) {
-  body{
-    background-color: blueviolet;
-  }
-
   .modal{
     justify-content: center;
     align-items: center;
