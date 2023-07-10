@@ -165,6 +165,7 @@
     transition: .25s ease-in-out;
     border-radius: 100%;
     border: 7px solid #eee;
+    color: #333;
   }
   .bottom-bar .active {
     transform: scale(1.25) translateY(-1em);

@@ -263,12 +263,19 @@ textarea::placeholder {
     margin-right: 0;
   }
 
+  .send{
+    margin-top: 40px;
+    color: var(--black-color);
+  }
+
   .contactButton {
+    color: var(--black-color);
     margin-bottom: 30px;
   }
 
   #staff-title {
     text-align: center;
+    margin: 20px;
   }
 }
 

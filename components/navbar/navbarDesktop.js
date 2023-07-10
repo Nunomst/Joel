@@ -26,7 +26,7 @@ export function navbarDesktop() {
           </a>
         </li>
       </ul>
-      <a href="#" class="brand">
+      <a href="index.html" class="brand">
         <span>
           <img src="/assets/color minimal.png" alt="">
         </span>
@@ -46,7 +46,7 @@ export function navbarDesktop() {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="cart.html">
             <span>
               <ion-icon name="cart-outline" class="cartNavItem"></ion-icon>
             </span>
