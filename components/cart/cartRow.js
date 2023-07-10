@@ -19,9 +19,6 @@ export function cartRow()
     </div>
   </td>
   <td>50.00$</td>
-  <tr>
-  <td colspan="4"><hr></td>
-</tr>
   `; 
 
     return cartRow;

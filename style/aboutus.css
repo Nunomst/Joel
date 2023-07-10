@@ -136,28 +136,7 @@ hr {
 
 /* #region -- Media Querys -- */
 
-@media (max-width: 1090px) {
-    .navbar-top {
-        display: none;
-    }
 
-    .bottom-bar {
-        display: block;
-
-    }
-}
-
-
-@media (max-width: 1012px) {
-    .navbar-top {
-        display: none;
-    }
-
-    .bottom-bar {
-        display: block;
-
-    }
-}
 
 @media (max-width: 768px) {
     .header-gallery p {

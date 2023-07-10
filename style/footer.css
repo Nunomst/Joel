@@ -91,23 +91,9 @@ footer {
     color: #DEBC42;
   }
   
-  @media (max-width: 1090px)
+
+  @media screen and (max-width: 768px)
   {
-    .navbar-top
-    {
-      display: none;
-    }
-  
-    .bottom-bar
-    {
-      display: block;
-  
-    }
-  }
-  
-  @media screen and (max-width: 1090px)
-  {
-  
     footer 
     {
      display: none; 

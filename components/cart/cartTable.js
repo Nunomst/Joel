@@ -6,8 +6,11 @@ export function cartTable() {
   
   let table = document.createElement('table');
 
-  table.appendChild(cartRow());
+  let hr = document.createElement('tr')
 
+  table.appendChild(cartRow());
+  hr.innerHTML = `<td colspan = 4> <hr> <td>`;
+  table.appendChild(hr);
   table.appendChild(cartRow());
 
   cartTable.appendChild(table);

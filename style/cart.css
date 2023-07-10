@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -9,344 +7,9 @@
   
   main
   {
-    height: 70vh;
+    height: 75vh;
   }
-  
-  .navbar-top nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    background-color: #fff;
-    padding: 0 50px;
-    display: flex;
-    transition: 0.5s;
-    align-items: center;
-    justify-content: center; 
-    overflow: hidden;
-    z-index: 999;
     
-  }
-  
-    .cartNavItem {
-        position: relative;
-        transform:scale(1.9);
-        transform-origin: center;
-    }
-  
-  .navbar-top .brand {
-    position: relative;
-    font-size: 1.8em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center; 
-  }
-  
-  .navbar-top .brand span {
-    transition: 0.5s;
-    display: block;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .navbar-top .brand span:nth-child(1) {
-    position: absolute;
-    transform: translateY(-100px);
-    font-size: 1.5em;
-  }
-  
-  .navbar-top .icon .brand span:nth-child(1) {
-    transform: translateY(12px);
-    color: #fff;
-  }
-  
-  .navbar-top .icon .brand span:nth-child(2) {
-    transform: translateY(100px);
-  }
-  
-  .navbar-top ul {
-    display: flex;
-    list-style: none;
-    margin-bottom: -10px;
-  }
-  
-  .navbar-top ul li {
-    margin: 0 45px; 
-  }
-  
-  .navbar-top .icon
-  {
-    background: #444;
-  }
-  
-  .navbar-top ul li a {
-    position: relative;
-    color: #333;
-    padding: 5px 20px;
-    font-size: 1.1em;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .navbar-top .icon span {
-    color: #fff;
-  }
-  
-  .navbar-top ul li a span {
-    transition: 0.5s;
-    transition-delay: calc(0.05s * var(--i));
-  }
-  
-  .navbar-top ul li a span:nth-child(2) {
-    position: absolute;
-    transform: translateY(35px);
-    font-size: 1.6em;
-  }
-  
-  .navbar-top .icon ul li a span:nth-child(1) {
-    transform: translateY(-30px);
-  }
-  
-  .navbar-top .icon ul li a span:nth-child(2) {
-    transform: translateY(2px);
-  }
-  
-  .navbar-top ul li:hover a span:nth-child(2) {
-    color: #DEBC42;
-  }
-  
-  .navbar-top .brand span img {
-    width:180px;
-    height: auto;
-    box-shadow: 1 1 1px 1px rgba(0, 0, 0, 0);
-    margin: 0 40px; 
-    /*  make it responsive */
-    max-width: 100%;
-    display: block;
-  }
-  
-  .bottom-bar {
-    display: none;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-top: 20em;
-    max-width: 23em;
-    margin-bottom: 0.5em;
-    width: 100%;
-    background-color: #eee;
-    text-align: center;
-    padding: 5px;
-    border-radius: 20px 20px 20px 20px;
-    z-index: 999;
-  }
-  
-  .bottom-bar .icon{
-    font-size: 1.3em;
-    padding: .5em;
-    margin: .5em;
-    margin-top: 0;
-    margin-bottom: auto;
-    transition: .25s ease-in-out;
-    border-radius: 100%;
-    border: 7px solid #eee;
-  }
-  .bottom-bar .active {
-    transform: scale(1.25) translateY(-1em);
-    background: linear-gradient(135deg, #FFFFFF, #ebebeb); 
-    border: 5px solid #ffe791; 
-    color: #333333; 
-  }
-  
-  .navbar-top ul li a:hover{
-    text-decoration-line: underline;
-    color: #DEBC42;
-  }
-  
-  footer {
-    background-color: #fff3c8;
-    padding: 0rem 0;
-    width: 100%;
-  }
-  
-  .footer-content 
-  {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    height: 140px;
-  }
-  
-  .footer-quick-links
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 2rem;
-  }
-  
-  .footer-quick-links ul
-  {
-    list-style: none;
-    padding-left: 10rem;
-  }
-  
-  .footer-quick-links ul li
-  {
-    padding: 0.4rem 0;
-  }
-  .footer-quick-links ul li a
-  {
-    text-decoration: none;
-    color: black;
-    font-size: 0.9rem;
-  }
-  
-  .footer-logo-message-container
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .footer-logo img
-  {
-    width: 130px;
-    height: auto;
-    margin-bottom: 0.4rem;
-  }
-  
-  .footer-logo-message-container p
-  {
-    font-size: 0.8rem;
-    position: relative;
-    top: 0.5rem;
-    text-align: center;
-  }
-  
-  .footer-social-links
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 2rem;
-  }
-  
-  .footer-social-links ul
-  {
-    list-style: none;
-    display:flex;
-    padding-right: 5rem;
-  }
-  
-  .footer-social-links ul li a
-  {
-    text-decoration: none;
-    color: black;
-    font-size: 1.6rem;
-    padding: 0 0.9rem;
-  }
-  
-  .footer-content li a:hover
-  {
-    color: #DEBC42;
-  }
-  
-  @media (max-width: 1090px)
-  {
-    .navbar-top
-    {
-      display: none;
-    }
-  
-    .bottom-bar
-    {
-      display: block;
-  
-    }
-  }
-  
-  @media screen and (max-width: 1090px)
-  {
-  
-    footer 
-    {
-     display: none; 
-    }
-  
-    .footer-quick-links
-    {
-     align-items: center;
-  
-    }
-    .footer-quick-links ul
-    {
-      padding-left: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding-top: 1rem;
-    }
-  
-    .footer-quick-links ul li
-    {
-      padding: 0 0.9rem;
-      text-align: center;
-    }
-  
-    .footer-quick-links ul li a
-    {
-      font-size: 0.9rem;
-      padding-left: 1rem;
-    }
-  
-    .footer-logo-message-container
-    {
-      align-items: center;
-    }
-    .footer-content
-    {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 1rem;
-    }
-  
-    .footer-social-links ul
-    {
-      padding-right: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-  
-    .footer-social-links ul li 
-    {
-      font-size: 1.6rem;
-      padding: 0 1.1rem;
-    }
-  
-    .footer-content li a:hover
-  {
-    color: #DEBC42;
-  }
-  
-  }
-  
   
   .your-cart
   {
@@ -531,7 +194,7 @@
     flex-grow: 1;
     margin-left: 2rem;
     margin-right: 5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 12rem;
     background-color: #f9eb9a62;
     border-radius: 15px;
   
@@ -673,11 +336,13 @@
   }
   
   
-  @media screen and (max-width: 1089px) {
+  @media screen and (max-width: 1098px) {
+
+   
     .cart-checkout-container {
       flex-direction: column;
       margin-top: 2rem;
-      width: 100%;
+      max-width: 100vh;
   }
   
   .cart-page
@@ -689,6 +354,7 @@
     padding-right: 1rem;
     padding-left: 1rem;
     padding-bottom: 1rem;
+    max-width: 50vh;
   }
   
   .cart-page h1 
@@ -756,7 +422,7 @@
   {
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 7rem;
     margin-top: 3rem;
     align-self: center;
     width: 70%;

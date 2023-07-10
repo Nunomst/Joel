@@ -1,5 +1,5 @@
 .navbar-top-section {
-    min-height: 15vh;
+    min-height: 10vh;
   }
   
   .navbar-top nav {
@@ -131,7 +131,6 @@
     height: auto;
     box-shadow: 1 1 1px 1px rgba(0, 0, 0, 0);
     margin: 0 40px;
-    /*  make it responsive */
     max-width: 100%;
     display: block;
   }
@@ -167,9 +166,24 @@
     border: 7px solid #eee;
     color: #333;
   }
+
   .bottom-bar .active {
     transform: scale(1.25) translateY(-1em);
     background: linear-gradient(135deg, #FFFFFF, #ebebeb);
-    border: 5px solid #ffe791; /* Light gray border */
-    color: #333333; /* Dark gray text */
+    border: 5px solid #ffe791; 
+    color: #333333; 
   }
+
+  @media (max-width: 768px)
+  {
+    .navbar-top-section
+    {
+      display: none;
+    }
+  
+    .bottom-bar
+    {
+      display: block;
+    }
+  }
+  
