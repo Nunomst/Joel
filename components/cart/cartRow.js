@@ -18,7 +18,11 @@ export function cartRow()
       <td><i class="fa-regular fa-trash-can"></i></td>
     </div>
   </td>
-  <td>50.00$</td>`; 
+  <td>50.00$</td>
+  <tr>
+  <td colspan="4"><hr></td>
+</tr>
+  `; 
 
     return cartRow;
 }
