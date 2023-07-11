@@ -1,15 +1,15 @@
 /* #region root + general definitions + css reset */
+
 :root{
   --color-icons: #111827;
 }
 
 *{
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  margin: 0;
-}
 /* #endregion */
 
 /* #region search-container */
@@ -70,6 +70,12 @@ body {
   width: 200px;
   height: 28px;
   box-shadow: 0px 1.5px 5px 0.5px #747474;
+  cursor: pointer;
+}
+
+.cartGo a{
+  text-decoration: none;
+  color: #000;
 }
 
 .cartGo p{
@@ -167,7 +173,7 @@ body {
 }
 
 .more-details-item{
-  margin-top: 13px ;
+  margin-top: 13px;
   margin-left: 13px;
   visibility: hidden;
 }
@@ -196,6 +202,7 @@ body {
   display: none;
   margin-left: 95px;
   box-shadow: 0px 2px 10px 0px #747474;
+  cursor: pointer;
 }
 
 .products-grid-item:hover .cart-grid-item{
@@ -288,7 +295,7 @@ body {
 
 .product-price p{
   display: flex;
-  margin-right: 10px;
+  margin-right: 17.5px;
   margin-left: 31px;
   width: 70px;
 }
@@ -304,6 +311,7 @@ body {
   align-items: center;
   height: 40px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .product-price i{
@@ -345,6 +353,7 @@ body {
 
 /* #endregion */
 
+
 /* #endregion */
 
 /* #region  media queries */
@@ -364,13 +373,9 @@ body {
     width: 400px;
   }
 
-  .cartGo{
-    height: 25px;
-  }
-
   .cartGo p{
+    width: 60px;
     font-size: 11px;
-    margin-left: 5px;
   }
 }
 
@@ -405,6 +410,10 @@ body {
   .products-grid-container{
     grid-template-columns: repeat(2, 2fr);
     gap: 20px;
+  }
+
+  .cartGo p{
+    width: 60px;
   }
 
 }
@@ -455,7 +464,6 @@ body {
 }
 
 @media only screen and (max-width: 400px) {
-
   .modal{
     justify-content: center;
     align-items: center;

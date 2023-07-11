@@ -5,9 +5,9 @@ export function footer () {
     <div class="footer-content">
       <div class="footer-quick-links">
         <ul>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contacts</a></li>
+          <li><a href="index.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="contactus.html">Contacts</a></li>
         </ul>
       </div>
       <div class="footer-logo-message-container">
