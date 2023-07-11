@@ -25,5 +25,5 @@ for (let i = 0; i < 27; i++) {
 
 handleScroll();
 highlightNavItem();
-// getProducts();
+getProducts();
 console.log(getProducts())
