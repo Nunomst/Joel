@@ -373,10 +373,25 @@
     width: 400px;
   }
 
-  .cartGo p{
-    width: 60px;
-    font-size: 11px;
-  }
+  .cartGo a{
+  text-decoration: none;
+  color: #000;
+  display: inline-flex;
+}
+
+.cartGo p{
+  display: inline-flex;
+  width: 60px;
+  margin: 5px;
+  margin-left: 16px;
+  font-size: 11px;
+}
+
+.cartGo i{
+  margin-left: 7px;
+  margin-top: 4px;
+}
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -412,8 +427,21 @@
     gap: 20px;
   }
 
+  .cartGo a{
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+  }
+  
   .cartGo p{
-    width: 60px;
+    display: inline-flex;
+    margin: 5px;
+    margin-left: 16px;
+  }
+  
+  .cartGo i{
+    margin-left: 7px;
+    margin-top: 4px;
   }
 
 }
