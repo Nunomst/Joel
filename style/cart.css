@@ -480,7 +480,53 @@
     border-radius: 12px;
   }
 
+}
 
+@media screen and (max-width: 768px) 
+{
+  main
+  {
+    height: 200vh;
+  }
+
+  .cart-checkout-container
+  {
+    position: relative;
+  }
+  .cart-page {
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+  }
+
+  .cart-page h1 
+  {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cart-table 
+  {
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: visible;
+  }
+
+  .checkout
+  {
+    position: absolute;
+    top: 100%;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+  }
 
 
 }
