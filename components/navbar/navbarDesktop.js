@@ -1,10 +1,14 @@
 import '../../style/navbar.css';
 export function navbarDesktop() {
   let navbarDesktop = document.createElement('div');
-  navbarDesktop.innerHTML = ` <section class="navbar-top-section">
+  navbarDesktop.innerHTML = ` 
+  <div class="logo-mobile">
+  <img src="assets/deki deki logo transparent gold.png" alt="">
+</div>
+  <section class="navbar-top-section">
   <div class="navbar-top">
     <nav id="navbar">
-      <ul class="menu-links">
+      <ul class="menu-links-left">
         <li>
           <a href="index.html">
             <span>
@@ -34,7 +38,7 @@ export function navbarDesktop() {
           <img src="/assets/deki deki logo transparent gold.png" alt="">
         </span>
       </a>
-      <ul class="menu-links">
+      <ul class="menu-links-right">
         <li>
           <a href="contactus.html">
             <span>
