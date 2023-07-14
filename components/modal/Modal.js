@@ -1,20 +1,23 @@
-export function createModal() {
+
+// this function creates the modal with the product information
+
+export function createModal(img, name, price, description) {
   const modal = document.createElement('div');
   modal.innerHTML = `
   <div id="modalSelector" class="modal">
       <div class="modal-container">
         <div class="modal-image">
-          <img src="./assets/images/images.jpeg" alt="foto">
+          <img src="${img}" alt="foto">
         </div>
         <div class="modal-products-container">
           <div class="product-name">
-            <h2>Product name</h2>
+            <h2>${name}</h2>
           </div>
           <div class="product-type">
             <p>Colars</p>
           </div>
           <div class="product-description">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur sequi modi soluta saepe. Laborum veritatis adipisci minus repellendus dolor non et inventore ea ipsam odit!</p>
+            <p>${description}</p>
           </div>
           <div class="rating-box">
             <div class="stars">
@@ -26,7 +29,7 @@ export function createModal() {
             </div>
           </div>
           <div class="product-price">
-            <p>999€</p>
+            <p>${price}€</p>
             <div class="product-add-cart">
               <i class="fa-solid fa-cart-shopping"></i>
               <p>Add to cart</p>
@@ -39,11 +42,15 @@ export function createModal() {
     return modal;
   }
   
+  // this function shows the modal
+
   export function showModal() {
     const modal = document.getElementById('modalSelector');
     modal.style.display = 'flex';
   }
   
+  //this function hides the modal
+
   export function hideModal() {
     const modal = document.getElementById('modalSelector');
     if (modal) {
