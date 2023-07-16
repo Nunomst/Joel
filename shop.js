@@ -5,6 +5,7 @@ import { handleScroll } from './logic/navbar/scrollLogic';
 import {highlightNavItem} from './logic/navbar/highlightNavItem';
 import { searchComponent } from './components/search/SearchComponent';
 import { productsGrid } from './components/productsGrid/ProductsGrid.js';
+import { searchProducts } from './logic/searchLogic';
 import { createProductCard } from './components/productsGrid/ProductsGrid.js';
 import { getProducts } from './services/getProducts';
 
@@ -34,3 +35,10 @@ for(let i = 0; i < productsData.length; i++) {
 
 handleScroll();
 highlightNavItem();
+
+const searchInput = document.getElementsByClassName("input-search")[0];
+
+searchInput.addEventListener('input', (event) => {
+  const query = event.target.value;
+  searchProducts(query);
+});
