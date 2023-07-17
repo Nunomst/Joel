@@ -196,14 +196,21 @@
     height: 100px;
   }
   
-  .logo-mobile img {
-    max-width: 100vh;
+  .logo-mobile a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+  }
+  
+  .logo-mobile img {
+    max-height: 100%;
+    max-width: 100%;
     display: block;
     margin: auto;
     transform: scale(1.6);
   }
-
+  
   .bottom-bar
   {
     display: block;

@@ -8,11 +8,12 @@ export function info()
         <div id="form">
         <form action="">
             <br>
-            <input type="text" id="name" name="name" value="" required placeholder="Name"><br><br>
-            <input type="text" id="company" name="company" value="" required placeholder="Company"><br><br>
-            <input type="email" id="email" name="email" value="" required placeholder="Email"><br><br>
-            <textarea name="message" id="message" cols="30" rows="10" required placeholder="Write your message here..."></textarea><br><br>
-        </form>
+            <input type="text" id="name" name="name" value="" required placeholder="Name" oninvalid="setCustomValidity('Campo obrigatório')" oninput="setCustomValidity('')"><br><br>
+            <input type="text" id="company" name="company" value="" required placeholder="Company" oninvalid="setCustomValidity('Campo obrigatório')" oninput="setCustomValidity('')"><br><br>
+            <input type="email" id="email" name="email" value="" required placeholder="Email" oninvalid="setCustomValidity('Campo obrigatório')" oninput="setCustomValidity('')"><br><br>
+            <textarea name="message" id="message" cols="30" rows="10" required placeholder="Write your message here..." oninvalid="setCustomValidity('Campo obrigatório')" oninput="setCustomValidity('')"></textarea><br><br>
+            <button type="submit" class="send button-container">Send</button><br>
+            </form>
         </div>
 
         <div id="map">
@@ -28,9 +29,15 @@ export function info()
 
     </div>
 
-    <div class="button-container">
-        <button type="submit" class="send">Send</button><br>
-    </div>`;
+
+    
+    
+    `;
 
     return info;
 }
+
+
+{/* <div class="button-container">
+<button type="submit" class="send">Send</button><br>
+</div> */}

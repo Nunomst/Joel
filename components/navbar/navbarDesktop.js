@@ -3,8 +3,10 @@ export function navbarDesktop() {
   let navbarDesktop = document.createElement('div');
   navbarDesktop.innerHTML = ` 
   <div class="logo-mobile">
-  <img src="assets/deki deki logo transparent gold.png" alt="">
-</div>
+    <a href="index.html" class="brand">
+      <img src="assets/deki deki logo transparent gold.png" alt="">
+    </a>
+  </div>
   <section class="navbar-top-section">
   <div class="navbar-top">
     <nav id="navbar">

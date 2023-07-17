@@ -100,9 +100,9 @@
   grid-auto-rows: minmax(50px, auto);
   justify-content: center;
   justify-items: center;
-  margin-top: 100px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin: 0 auto;
+  width: 90%;
+  height: 60%;
 }
 
 .products-grid-item{
