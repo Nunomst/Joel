@@ -1,5 +1,6 @@
 import {cartRow } from "./cartRow";
 import { hrRow } from "./hrRow";
+
 import { updateCartCount } from "../../logic/navbar/updateCartCount";
 export function cartTable() {
   let cartTable = document.createElement('div');
@@ -27,6 +28,7 @@ export function cartTable() {
     deleteButton.addEventListener("click", () => {
       cart.splice(i, 1);
       localStorage.setItem('cart', JSON.stringify(cart));
+      location.reload();
       updateCartCount(cart.length);
       row.remove();
       if (i < cart.length) {
@@ -39,6 +41,7 @@ export function cartTable() {
         let lastHr = hrElements[cart.length];
         if (lastHr) lastHr.remove();
       }
+      console.log(cart);
     });
   }
   

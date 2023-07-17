@@ -1,5 +1,5 @@
 import { createModal, showModal, hideModal } from "../modal/Modal.js";
-
+import { limitString } from "../../logic/limitString.js";
 // this is the component that will be appended to the div with id="app" from index.html that creates the grid of products
 
 export function productsGrid() {
@@ -19,7 +19,7 @@ export function createProductCard(img, name, price, description) {
     </div>
     <div class="item-description-container">
       <div class="img-description">
-      <p>${name}</p>
+      <p>${limitString(name, 14)}</p>
       </div>
       <div class="price-item">
         ${price}€

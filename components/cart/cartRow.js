@@ -1,3 +1,5 @@
+import { limitString } from "../../logic/limitString";
+
 export function cartRow(image, name, price)
 {
     let cartRow = document.createElement('tr');
@@ -6,7 +8,7 @@ export function cartRow(image, name, price)
       <div class="cart-info">
         <img src=${image} alt="" class="product-image">
         <div class ="product-info">
-          <p>${name}</p>
+          <p>${limitString(name, 19)}</p>
           <small>${price}</small>
         </div>
       </div>
