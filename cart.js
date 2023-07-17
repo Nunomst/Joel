@@ -14,6 +14,7 @@ let appDiv = document.getElementById('app');
 let main = document.createElement('main');
 let cartCheckoutContainer = document.createElement('div');
 cartCheckoutContainer.classList.add('cart-checkout-container');
+let deleteButtons = document.querySelectorAll('.delete-btn');
 
 
 appDiv.appendChild(navbarDesktop());
