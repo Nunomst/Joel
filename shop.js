@@ -32,6 +32,10 @@ for(let i = 0; i < productsData.length; i++) {
 
 let cart = [];
 
+if(localStorage.getItem('cart') !== null) {
+  cart = JSON.parse(localStorage.getItem('cart'));
+}
+
 function addToCart(product) {
   for(let i = 0; i < cart.length; i++) {
     if(cart[i].name === product.name) {
@@ -42,6 +46,7 @@ function addToCart(product) {
   cart.push(product);
   console.log(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
+
 }
 
   const addToCartButton = document.querySelectorAll(".cart-grid-item");
