@@ -1,13 +1,13 @@
-export function cartRow()
+export function cartRow(image, name, price)
 {
     let cartRow = document.createElement('tr');
     cartRow.innerHTML = `
     <td>
       <div class="cart-info">
-        <img src="assets/images.jpeg" alt="" class="product-image">
+        <img src=${image} alt="" class="product-image">
         <div class ="product-info">
-          <p>Product name</p>
-          <small>$29.99</small>
+          <p>${name}</p>
+          <small>${price}</small>
         </div>
       </div>
     </td>
@@ -21,7 +21,7 @@ export function cartRow()
     <td>
       <i class="fa-regular fa-trash-can"></i>
     </td>
-    <td>50.00$</td>
+    <td>50$</td>
   
   `; 
 

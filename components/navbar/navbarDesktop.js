@@ -1,6 +1,11 @@
 import '../../style/navbar.css';
 export function navbarDesktop() {
   let navbarDesktop = document.createElement('div');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartCount = cart.length;
+    cartCount = cartCount.toString(); 
+
   navbarDesktop.innerHTML = ` 
   <div class="logo-mobile">
   <img src="assets/deki deki logo transparent gold.png" alt="">
@@ -57,7 +62,7 @@ export function navbarDesktop() {
             <span>
               <ion-icon name="cart-outline"></ion-icon>
             </span>
-            <label id="lblCartCount">1</label>
+            <label id="lblCartCount">${cartCount}</label>
           </a>
         </li>
       </ul>
@@ -65,5 +70,6 @@ export function navbarDesktop() {
   </div>
 </section>
   `
+
   return navbarDesktop;
 }

@@ -30,7 +30,32 @@ for(let i = 0; i < productsData.length; i++) {
   products.appendChild(createProductCard(product.image, product.name, product.price, product.description));
 }
 
+let cart = [];
+
+function addToCart(product) {
+  for(let i = 0; i < cart.length; i++) {
+    if(cart[i].name === product.name) {
+      alert("This product is already in your cart!");
+      return;
+    }
+  }
+  cart.push(product);
+  console.log(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+  const addToCartButton = document.querySelectorAll(".cart-grid-item");
+
+  addToCartButton.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const product = productsData[index];
+      addToCart(product);
+    });
+  });
+
+
 // #endregion
 
 handleScroll();
 highlightNavItem();
+
