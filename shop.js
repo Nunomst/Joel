@@ -7,7 +7,7 @@ import { searchComponent } from './components/search/SearchComponent';
 import { productsGrid } from './components/productsGrid/ProductsGrid.js';
 import { createProductCard } from './components/productsGrid/ProductsGrid.js';
 import { getProducts } from './services/getProducts';
-
+import { updateCartCount } from './logic/navbar/updateCartCount';
 
 // #region shopPage logic
 
@@ -55,6 +55,7 @@ function addToCart(product) {
     button.addEventListener("click", () => {
       const product = productsData[index];
       addToCart(product);
+      updateCartCount(cart.length);
     });
   });
 

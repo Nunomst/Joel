@@ -1,11 +1,12 @@
 import '../../style/navbar.css';
 export function navbarDesktop() {
+  let cart = JSON.parse(localStorage.getItem('cart'));
+  let cartCount = 0;
+  if (cart) {
+    cartCount = cart.length;
+  }
+
   let navbarDesktop = document.createElement('div');
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let cartCount = cart.length;
-    cartCount = cartCount.toString(); 
-
   navbarDesktop.innerHTML = ` 
   <div class="logo-mobile">
   <img src="assets/deki deki logo transparent gold.png" alt="">

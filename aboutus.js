@@ -9,11 +9,13 @@ import {highlightNavItem} from './logic/highlightNavItem';
 
 let appDiv = document.getElementById('app');
 
-appDiv.appendChild(navbarDesktop());
-appDiv.appendChild(navbarMobile());
-appDiv.appendChild(gallery());
-appDiv.appendChild(aboutus());
-appDiv.appendChild(footer());
 
-handleScroll();
-highlightNavItem();
+window.addEventListener('load', () => {
+    appDiv.appendChild(navbarDesktop());
+    appDiv.appendChild(navbarMobile());
+    appDiv.appendChild(gallery());
+    appDiv.appendChild(aboutus());
+    appDiv.appendChild(footer());
+    handleScroll();
+    highlightNavItem();
+});

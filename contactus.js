@@ -27,3 +27,4 @@ handleScroll();
 highlightNavItem();
 carousel();
 getPerson();
+

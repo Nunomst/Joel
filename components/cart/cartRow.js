@@ -13,9 +13,9 @@ export function cartRow(image, name, price)
     </td>
     <td>
       <div class="quantity">
-        <button>-</button>
+        <button class="minusQtd">-</button>
         <input type="number" value="1" class="product-quantity">
-        <button>+</button>
+        <button class="plusQtd">+</button>
       </div>
     </td>
     <td>
