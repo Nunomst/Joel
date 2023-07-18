@@ -1,5 +1,5 @@
 import { getProducts } from '../services/getProducts';
-import { createProductCard } from '../components/productsGrid/ProductsGrid.js';
+import { createProductCard } from '../components/shop/productsgrid.js';
 
 export async function searchProducts(name) 
 {
@@ -7,7 +7,7 @@ export async function searchProducts(name)
 
   const filteredProducts = products.filter((product) => {
     const productName = product.name.toLowerCase();
-    return productName.includes(name.toLowerCase());
+    return productName.includes(name.toLowerCase().trim());
   });
 
   const productsGridContainer = document.querySelector('.products-grid-container');

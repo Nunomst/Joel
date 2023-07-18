@@ -5,10 +5,11 @@ import {navbarMobile} from './components/navbar/navbarMobile.js';
 import { handleScroll } from './logic/scrollLogic';
 import {highlightNavItem} from './logic/highlightNavItem';
 import { searchComponent } from './components/shop/search.js';
-import { productsGrid } from './components/shop/ProductsGrid';
-import { createProductCard } from './components/shop/ProductsGrid';
+import { productsGrid } from './components/shop/productsgrid';
+import { createProductCard } from './components/shop/productsgrid';
 import { getProducts } from './services/getProducts';
 import { updateCartCount } from './logic/updateCartCount';
+import { searchProducts } from './logic/searchLogic';
 
 // #region shopPage logic
 
@@ -66,13 +67,12 @@ function addToCart(product) {
 // #endregion
 
 
+handleScroll();
+highlightNavItem();
+
 const searchInput = document.getElementsByClassName("input-search")[0];
 
 searchInput.addEventListener('input', (event) => {
   const query = event.target.value;
   searchProducts(query);
 });
-
-
-handleScroll();
-highlightNavItem();
