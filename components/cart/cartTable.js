@@ -43,9 +43,36 @@ export function cartTable() {
       }
       console.log(cart);
     });
-  }
-  
+    
+    let inputQuantity = row.querySelector(".product-quantity");
 
+    inputQuantity.addEventListener("change", () => {
+      if (inputQuantity.value < 1) {
+        inputQuantity.value = 1;
+      }
+      if (inputQuantity.value > item.quantity) {
+        inputQuantity.value = item.quantity;
+      };
+    });
+
+    let minusButton = row.querySelector(".minusQtd");
+    minusButton.addEventListener("click", () => {
+      if (inputQuantity.value > 1) {
+        inputQuantity.value--;
+      }
+    });
+
+    let plusButton = row.querySelector(".plusQtd");
+    plusButton.addEventListener("click", () => {
+      if (inputQuantity.value < item.quantity) {
+        inputQuantity.value++;
+      }
+    });
+
+    let itemTotalPrice = row.querySelector(".item-total-price");
+    itemTotalPrice.innerHTML = `${item.price * inputQuantity.value}€`;
+    
+  }
 
 
   cartTable.appendChild(table);

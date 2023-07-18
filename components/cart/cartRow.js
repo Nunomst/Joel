@@ -16,14 +16,16 @@ export function cartRow(image, name, price)
     <td>
       <div class="quantity">
         <button class="minusQtd">-</button>
-        <input type="number" value="1" class="product-quantity">
+        <input type="number" value="1" class="product-quantity" disabled>
         <button class="plusQtd">+</button>
       </div>
     </td>
     <td>
       <i class="fa-regular fa-trash-can"></i>
     </td>
-    <td>50€</td>
+    <td class="item-total">
+    <small class="item-total-price"></small>
+    </td>
   
   `; 
 
