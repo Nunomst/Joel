@@ -8,7 +8,11 @@ export function cartRow(image, name, price)
       <div class="cart-info">
         <img src=${image} alt="" class="product-image">
         <div class ="product-info">
+<<<<<<< Updated upstream
           <p>${limitString(name, 19)}</p>
+=======
+          <p>${limitString(name, 40)}</p>
+>>>>>>> Stashed changes
           <small>${price}</small>
         </div>
       </div>

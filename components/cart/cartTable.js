@@ -1,5 +1,6 @@
 import {cartRow } from "./cartRow";
 import { hrRow } from "./hrRow";
+import { updateCartCount } from "../../logic/updateCartCount";
 
 import { updateCartCount } from "../../logic/navbar/updateCartCount";
 export function cartTable() {

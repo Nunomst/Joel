@@ -27,6 +27,12 @@ main
   max-height: 569px
 }
 
+.cart-page h1
+{
+  margin-bottom: 40px;
+
+}
+
 .cart-table
 {
   display: flex;
@@ -79,7 +85,7 @@ table
   display: flex;
   flex-wrap: wrap;
   float: left;
-  width: 60%;
+  width: 100%;
 }
 
 th 
@@ -112,9 +118,18 @@ td a
 
 td img 
 {
+<<<<<<< Updated upstream
   width: 50px;
   height: 50px;
   margin-right: 10px;
+=======
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: scale-down;
+
+>>>>>>> Stashed changes
 }
 
 .quantity button
@@ -136,11 +151,21 @@ td img
   background-color: #f9eb9a;
 }
 
+.cart-info
+{
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .cart-info p
 {
   margin-top: 20px;
   color: #000000;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .cart-info h1 
@@ -150,9 +175,18 @@ td img
   margin-bottom: 20px;
 }
 
+.product-info
+{
+
+  margin-right: 1rem;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
+}
+
 .cart-info small
 {
   color: #999;
+
 }
 
 .fa-regular 
@@ -576,7 +610,7 @@ main
 
 }
 
-@media screen and (max-width: 472px)
+@media screen and (max-width: 518px)
 {
 main
 {
@@ -736,3 +770,4 @@ main
   font-size: 100%;
 }
 }
+

@@ -1,6 +1,8 @@
 import './style/shop.css';
+
 import {navbarDesktop} from './components/navbar/navbarDesktop.js';
 import {navbarMobile} from './components/navbar/navbarMobile.js';
+<<<<<<< Updated upstream
 import { handleScroll } from './logic/navbar/scrollLogic';
 import {highlightNavItem} from './logic/navbar/highlightNavItem';
 import { searchComponent } from './components/search/SearchComponent';
@@ -10,6 +12,19 @@ import { getProducts } from './services/getProducts';
 import { updateCartCount } from './logic/navbar/updateCartCount';
 
 // #region shopPage logic
+=======
+import { handleScroll } from './logic/scrollLogic';
+import {highlightNavItem} from './logic/highlightNavItem';
+import { searchComponent } from './components/search/SearchComponent';
+import { productsGrid } from './components/shop/productsgrid';
+import { createProductCard } from './components/shop/productsgrid';
+import { getProducts } from './services/getProducts';
+import { updateCartCount } from './logic/updateCartCount';
+
+// #region shopPage logic
+
+
+>>>>>>> Stashed changes
 
 // get the div with id="app" from index.html and append the components to it
 let appDiv = document.getElementById('app');
