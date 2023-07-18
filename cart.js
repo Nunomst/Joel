@@ -28,6 +28,8 @@ appDiv.appendChild(footer());
 
 console.log(cart);
 
+
+
 handleScroll();
 highlightNavItem();
 
