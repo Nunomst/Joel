@@ -14,7 +14,6 @@ let cartCheckoutContainer = document.createElement('div');
 cartCheckoutContainer.classList.add('cart-checkout-container');
 
 
-
 appDiv.appendChild(navbarDesktop());
 appDiv.appendChild(navbarMobile());
 cartCheckoutContainer.appendChild(cartContainer());
@@ -24,13 +23,7 @@ main.appendChild(cartCheckoutContainer);
 
 appDiv.appendChild(footer());
 
-
-
-console.log(cart);
-
-
-
 handleScroll();
 highlightNavItem();
 
-
+console.log(cart);

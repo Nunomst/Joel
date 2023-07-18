@@ -9,10 +9,8 @@ export function cartTable() {
   
   let table = document.createElement('table');
 
-
-
   let hrElements = []; 
-
+  let  totalPrice = 0
   for (let i = 0; i < cart.length; i++) {
     let item = cart[i];
     let row = cartRow(item.image, item.name, item.price);
@@ -23,6 +21,7 @@ export function cartTable() {
       table.appendChild(hr);
       hrElements.push(hr);
     }
+
   
     let deleteButton = row.querySelector(".fa-trash-can");
     deleteButton.addEventListener("click", () => {
@@ -53,12 +52,31 @@ export function cartTable() {
       if (inputQuantity.value > item.quantity) {
         inputQuantity.value = item.quantity;
       };
+      
+      // Calculate the updated item total price and update totalPrice
+      let quantity = parseInt(inputQuantity.value);
+      let price = item.price;
+      let total = quantity * price;
+      itemTotalPrice.innerHTML = `€ ${total.toFixed(2)}`;
+      totalPrice += total - (item.price * item.quantity);
+      
+      // Update localStorage with the updated totalPrice
+      localStorage.setItem('totalPrice', totalPrice);
     });
+
+    let itemTotalPrice = row.querySelector(".item-total-price");
+    itemTotalPrice.innerHTML = `${item.price * inputQuantity.value}€`;
+    totalPrice += item.price * inputQuantity.value;
+    console.log(totalPrice);
 
     let minusButton = row.querySelector(".minusQtd");
     minusButton.addEventListener("click", () => {
       if (inputQuantity.value > 1) {
         inputQuantity.value--;
+        itemTotalPrice.innerHTML = `${item.price * inputQuantity.value}€`;
+        
+        // Update localStorage with the updated totalPrice
+        localStorage.setItem('totalPrice', totalPrice);
       }
     });
 
@@ -66,14 +84,16 @@ export function cartTable() {
     plusButton.addEventListener("click", () => {
       if (inputQuantity.value < item.quantity) {
         inputQuantity.value++;
+        itemTotalPrice.innerHTML = `${item.price * inputQuantity.value}€`;
+        
+        // Update localStorage with the updated totalPrice
+        localStorage.setItem('totalPrice', totalPrice);
       }
     });
-
-    let itemTotalPrice = row.querySelector(".item-total-price");
-    itemTotalPrice.innerHTML = `${item.price * inputQuantity.value}€`;
-    
   }
-
+  
+  // Store the final totalPrice in localStorage after all event listeners are set up
+  localStorage.setItem('totalPrice', totalPrice);
 
   cartTable.appendChild(table);
 

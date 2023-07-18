@@ -1,5 +1,11 @@
+
 export function checkout()
 {
+
+  const totalPrice = JSON.parse(localStorage.getItem('totalPrice'));
+
+  
+
     let checkout = document.createElement('div');
     checkout.classList.add('checkout');
     checkout.innerHTML = ` <div class="coupon-code">
@@ -12,7 +18,7 @@ export function checkout()
    <table>
       <tr>
         <td>Total price:</td>
-        <td>$200.00</td>
+        <td>${totalPrice.toFixed(2)}€</td>
       </tr>
       <tr>
         <td>Discount:</td>
