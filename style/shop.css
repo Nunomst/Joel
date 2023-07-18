@@ -16,7 +16,7 @@
 
 .search-container{
   display: flex;
-  margin-top: 10px;
+  margin-top: 60px;
   align-items: center;
   justify-content: center;
 }
@@ -101,6 +101,7 @@
   justify-content: center;
   justify-items: center;
   margin: 0 auto;
+  margin-top: 100px;
   width: 90%;
   height: 60%;
 }
@@ -366,6 +367,7 @@
 
   .search-container{
     margin: auto;
+    margin-top: 60px;
     width: 100px;
   }
 

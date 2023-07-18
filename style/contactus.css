@@ -6,9 +6,6 @@ body {
   margin: 0;
 }
 
-
-/* #endregion */
-
 :root {
   --primary-color: #dabb43;
   --black-color: rgba(0, 0, 0, 0.8);
@@ -74,29 +71,34 @@ body {
   }
 }
 
-#info-title {
+.info-title {
   margin-top: 50px;
   text-align: center;
   margin-bottom: 40px;
 }
 
-#info {
+.info {
+  margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   align-items: flex-start;
+  max-width: 100vh;
 }
 
-#form {
-  margin-left: -10px;
-  margin-right: 200px;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#form label {
+.form label {
   margin-bottom: 5px;
 }
 
 input {
-  color: #242424;
+  color: var(--black-color);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -122,37 +124,34 @@ textarea {
 
 textarea::placeholder {
   color: var(--gray-color);
+  padding: 5px;
 }
 
-#map {
-  margin-bottom: 15px;
-  flex-basis: 250px;
+.map {
+  width: 400px;
+  height: 430px;
   box-shadow: var(--box-shadow);
-}
-
-.button-container {
-  margin-top: 15px;
-  text-align: center;
 }
 
 .send {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-size: 1em;
   background-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 1em;
   width: 75px;
   height: 40px;
-  box-shadow: var(--box-shadow);
-  margin-top: 5px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
 .send:hover {
   border-color: #fff3c8;
 }
 
-#staff-title {
-  margin-top: 75px;
+.staff-title {
+  margin-top: 100px;
   margin-bottom: 75px;
 }
 
@@ -224,6 +223,7 @@ textarea::placeholder {
   margin-top: 10px;
   margin-bottom: 125px;
   box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 
 .contactButton:hover {
@@ -235,22 +235,18 @@ textarea::placeholder {
 }
 
 @media (max-width: 1230px) {
-  #info {
+  .info {
     flex-direction: column;
     align-items: center;
   }
 
-  #form,
-  #map {
+  .form,
+  .map {
     margin: 0;
   }
 
-  #map {
+  .map {
     margin-top: 15px;
-  }
-
-  #button-container {
-    margin-top: 30px;
   }
 
   .staff::after {
@@ -262,17 +258,12 @@ textarea::placeholder {
     margin-right: 0;
   }
 
-  .send{
-    margin-top: 40px;
-    color: var(--black-color);
-  }
-
   .contactButton {
     color: var(--black-color);
     margin-bottom: 30px;
   }
 
-  #staff-title {
+  .staff-title {
     text-align: center;
     margin: 20px;
   }
@@ -282,6 +273,11 @@ textarea::placeholder {
   .prev,
   .next {
     font-size: 11px;
+  }
+
+  .staff-title{
+    margin-top: 70px;
+    margin-bottom: 70px;
   }
 
   .staff-container {
@@ -302,20 +298,15 @@ textarea::placeholder {
     margin-bottom: 5px;
   }
 
-  #map,
+  .map,
   iframe {
     width: 350px;
     height: 250px;
   }
 
-  #info {
+  .info {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  #button-container {
-    margin-top: 75px;
-    text-align: center;
   }
 }

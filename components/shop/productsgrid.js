@@ -1,4 +1,7 @@
-import { createModal, showModal, hideModal } from "./modal.js";
+import { createModal, showModal, hideModal} from "./modal.js";
+import { limitString } from "../../logic/limitString.js";
+
+// this is the component that will be appended to the div with id="app" from index.html that creates the grid of products
 
 export function productsGrid() {
   let productsGrid = document.createElement('div');
@@ -7,16 +10,21 @@ export function productsGrid() {
   return productsGrid;
 }
 
-export function createProductCard() {
-  let products = document.createElement('div');
+// this is the function that creates the product card inside the grid
 
+export function createProductCard(img, name, price, description) {
+  let products = document.createElement('div');
   products.innerHTML += `<div class="products-grid-item">
     <div class="item-img">
-      <img src="./assets/images.jpeg" alt="joia">
+      <img src="${img}" alt="joia">
     </div>
     <div class="item-description-container">
-      <p class="img-description">Colar de Diamante</p>
-      <p class="price-item">9999€</p>
+      <div class="img-description">
+      <p>${limitString(name, 14)}</p>
+      </div>
+      <div class="price-item">
+        ${price}€
+      </div>
     </div>
     <div class="type-container">
       <p class="type-item">Rings</p>
@@ -27,12 +35,12 @@ export function createProductCard() {
     </div>
   </div>`;
 
+  // this is the function that creates the modal when the user clicks on the "More details" button
   const modalActivators = products.querySelectorAll('.more-details-item');
 
   modalActivators.forEach((modalActivator) => {
     modalActivator.addEventListener('click', () => {
-      console.log('clicado');
-      const modal = createModal();
+      const modal = createModal(img, name, price, description);
       document.body.appendChild(modal);
       showModal();
       addModalCloseEvent();
@@ -42,11 +50,13 @@ export function createProductCard() {
   return products;
 }
 
+// this is the function that closes the modal when the user clicks outside of it
+
 export function addModalCloseEvent() {
   const modal = document.getElementById('modalSelector');
 
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
       hideModal();
       modal.remove();
     }
