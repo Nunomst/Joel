@@ -9,7 +9,7 @@ export function cartRow(image, name, price)
         <img src=${image} alt="" class="product-image">
         <div class ="product-info">
           <p>${limitString(name, 40)}</p>
-          <small>${price}</small>
+          <small>${price}€</small>
         </div>
       </div>
     </td>
@@ -23,7 +23,7 @@ export function cartRow(image, name, price)
     <td>
       <i class="fa-regular fa-trash-can"></i>
     </td>
-    <td>50$</td>
+    <td>50€</td>
   
   `; 
 
