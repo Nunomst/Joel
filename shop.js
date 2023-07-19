@@ -8,6 +8,8 @@ import { productsGrid } from './components/productsGrid/ProductsGrid.js';
 import { searchProducts } from './logic/searchLogic';
 import { createProductCard } from './components/productsGrid/ProductsGrid.js';
 import { getProducts } from './services/getProducts';
+import { getPerson } from './logic/getPerson';
+import { staff } from './components/contactus/staff';
 
 
 // #region shopPage logic
@@ -32,6 +34,12 @@ for(let i = 0; i < productsData.length; i++) {
 }
 
 // #endregion
+
+const personInfo = await getPerson();
+
+const staffDiv = appDiv.querySelector(".staff-container");
+staffDiv.appendChild(staff(personInfo[0].picture, personInfo[0].firstName, personInfo[0].lastName));
+
 
 handleScroll();
 highlightNavItem();
