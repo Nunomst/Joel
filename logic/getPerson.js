@@ -16,9 +16,6 @@ export async function getPerson()
         picture: personInfo.picture.large,
       });
     });
-
-    console.log(personInfo.name.first)
-    console.log(person[0].lastName)
     return person;
   } 
   catch (error) 

@@ -1,5 +1,3 @@
-import { getPerson } from "../../logic/getPerson";
-
 export  function staff(picture, firstName, lastName) {
   let staff = document.createElement('div');
 
@@ -19,8 +17,6 @@ export  function staff(picture, firstName, lastName) {
         </div>
       </div>
     </div>`;
-
-    
 
   return staff;
 }

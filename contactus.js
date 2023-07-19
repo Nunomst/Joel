@@ -22,6 +22,15 @@ appDiv.appendChild(info());
 appDiv.appendChild(staff());
 appDiv.appendChild(footer());
 
+const personInfo = await getPerson();
+
+const staffDiv = appDiv.querySelector(".user-info");
+
+for(let i= 0; i < 2; i++)
+{
+    const person = personInfo[i];
+    staffDiv.appendChild(staff(person.picture, person.firstName, person.lastName));
+}
 
 handleScroll();
 highlightNavItem();
