@@ -12,6 +12,8 @@ import { carousel } from './logic/carouselLogic.js';
 import { carouselHTML } from './components/contactus/carousel.js';
 import { info } from './components/contactus/info.js';
 import { staff } from './components/contactus/staff.js';
+import { staffIntro } from './components/contactus/staff.js';
+
 
 let appDiv = document.getElementById('app');
 
@@ -19,12 +21,12 @@ appDiv.appendChild(navbarDesktop());
 appDiv.appendChild(navbarMobile());
 appDiv.appendChild(carouselHTML());
 appDiv.appendChild(info());
-appDiv.appendChild(staff());
+appDiv.appendChild(staffIntro());
 appDiv.appendChild(footer());
 
 const personInfo = await getPerson();
 
-const staffDiv = appDiv.querySelector(".user-info");
+const staffDiv = appDiv.querySelector(".staff-container");
 
 for(let i= 0; i < 2; i++)
 {

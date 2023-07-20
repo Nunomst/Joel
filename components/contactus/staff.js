@@ -1,22 +1,32 @@
-export  function staff(picture, firstName, lastName) {
-  let staff = document.createElement('div');
+export  function staffIntro() 
+{
+  let staffIntro = document.createElement('div');
+  staffIntro.classList.add('staff')
 
-  staff.innerHTML = `
-    <div class="staff">
+  staffIntro.innerHTML = `
       <h1 id="staff-title">Still not sure? Contact our team and get close and personal</h1>
       <div class="staff-container">
-        <div class="user">
-          <div class="user-info">
-            <img src="${picture}" alt="User Photo">
-            <p class="userName">${firstName} ${lastName}</p>
-            <p class="role">Sales Representative</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quae praesentium tenetur? Totam ad dolor
-            nesciunt possimus voluptate nulla inventore id architecto provident accusantium?</p>
-            <button class="contactButton">Contact me!</button>
-          </div>
-        </div>
       </div>
-    </div>`;
+    `;
+  return staffIntro;
+}
 
-  return staff;
+
+export  function staff(picture, firstName, lastName) 
+{ 
+  let userDiv = document.createElement('div')
+  userDiv.classList.add('user');
+
+  userDiv.innerHTML = `
+    <div class="user-info">
+      <img src="${picture}" alt="User Photo">
+      <p class="userName">${firstName} ${lastName}</p>
+      <p class="role">Sales Representative</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quae praesentium tenetur? Totam ad dolor
+      nesciunt possimus voluptate nulla inventore id architecto provident accusantium?</p>
+      <button class="contactButton">Contact me!</button>
+    </div>
+  `;
+
+  return userDiv;
 }

@@ -7,7 +7,6 @@ export async function getPerson()
     let response = await fetch('https://randomuser.me/api/?results=2');
     let data = await response.json();
     const results = data.results;
-    const personInfo = results [0];
     
     const person = results.map((personInfo) => {
       return new Person({

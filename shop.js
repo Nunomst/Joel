@@ -8,8 +8,7 @@ import { productsGrid } from './components/productsGrid/ProductsGrid.js';
 import { searchProducts } from './logic/searchLogic';
 import { createProductCard } from './components/productsGrid/ProductsGrid.js';
 import { getProducts } from './services/getProducts';
-import { getPerson } from './logic/getPerson';
-import { staff } from './components/contactus/staff';
+
 
 
 // #region shopPage logic
@@ -34,7 +33,6 @@ for(let i = 0; i < productsData.length; i++) {
 }
 
 // #endregion
-
 
 handleScroll();
 highlightNavItem();
