@@ -7,11 +7,14 @@ body {
 }
 
 :root {
-  --primary-color: #dabb43;
+  --primary-color: #DEBC42;
+  --secondary-color: #F9EB9A;
   --black-color: rgba(0, 0, 0, 0.8);
   --gray-color: gray;
   --box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.5);
 }
+
+/* #region -- Carousel style -- */
 
 .carousel-container {
   max-width: 100%;
@@ -70,6 +73,10 @@ body {
     opacity: 1;
   }
 }
+
+/* #endregion -- Carousel style -- */
+
+/* #region -- Contact Us style -- */
 
 .info-title {
   margin-top: 50px;
@@ -134,21 +141,27 @@ textarea::placeholder {
 }
 
 .send {
-  background-color: var(--primary-color);
-  box-shadow: var(--box-shadow);
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1em;
   width: 75px;
   height: 40px;
+  background-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 0.9rem;
   cursor: pointer;
   display: block;
+  font-weight: bold;
   margin: 0 auto;
+  transition: background-color 0.3s ease;
 }
 
 .send:hover {
-  border-color: #fff3c8;
+  background-color: var(--secondary-color);
 }
+
+/* #endregion -- Contact Us style -- */
+
+/* #region -- Staff style -- */
 
 .staff-title {
   margin-top: 100px;
@@ -212,11 +225,11 @@ textarea::placeholder {
 }
 
 .contactButton {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: bold;
   background-color: var(--primary-color);
   width: 150px;
   justify-content: center;
@@ -224,15 +237,20 @@ textarea::placeholder {
   margin-bottom: 125px;
   box-shadow: var(--box-shadow);
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .contactButton:hover {
-  border-color: black;
+  background-color: var(--secondary-color);
 }
 
 .role {
   color: grey;
 }
+
+/* #endregion -- Staff style -- */
+
+/* #region -- Media Querys -- */
 
 @media (max-width: 1230px) {
   .info {
@@ -310,3 +328,5 @@ textarea::placeholder {
     align-items: center;
   }
 }
+
+/* #endregion -- Media Querys -- */

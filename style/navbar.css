@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #DEBC42;
+  --secondary-color: #F9EB9A;
+  --black-color: rgba(0, 0, 0, 0.8);
+  --gray-color: gray;
+  --box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
 .logo-mobile {
   display: none;
 }
@@ -95,6 +104,17 @@
   overflow: hidden;
 }
 
+.navbar-top ul li a:not(.icon-remove-hover):hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background-color: var(--primary-color);
+}
+
 .navbar-top .icon span {
   color: #fff;
 }
@@ -131,7 +151,7 @@
 }
 
 .navbar-top ul li:hover a span:nth-child(2) {
-  color: #DEBC42;
+  color: var(--primary-color);
 }
 
 .navbar-top .brand span img {

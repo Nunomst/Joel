@@ -52,7 +52,7 @@ export function navbarDesktop() {
           </a>
         </li>
         <li>
-          <a href="cart.html">
+          <a class="icon-remove-hover" href="cart.html">
             <span>
               <ion-icon name="cart-outline" class="cartNavItem"></ion-icon>
             </span>

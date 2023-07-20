@@ -13,8 +13,6 @@ import { searchProducts } from './logic/searchLogic';
 
 // #region shopPage logic
 
-
-
 // get the div with id="app" from index.html and append the components to it
 let appDiv = document.getElementById('app');
 
