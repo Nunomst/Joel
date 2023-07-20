@@ -41,7 +41,6 @@ if(localStorage.getItem('cart') !== null) {
 function addToCart(product) {
   for(let i = 0; i < cart.length; i++) {
     if(cart[i].name === product.name) {
-      alert("This product is already in your cart!");
       return;
     }
   }

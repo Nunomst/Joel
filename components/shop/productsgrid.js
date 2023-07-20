@@ -35,6 +35,8 @@ export function createProductCard(img, name, price, description) {
     </div>
   </div>`;
 
+
+
   // this is the function that creates the modal when the user clicks on the "More details" button
   const modalActivators = products.querySelectorAll('.more-details-item');
 
@@ -46,6 +48,17 @@ export function createProductCard(img, name, price, description) {
       addModalCloseEvent();
     });
   });
+
+
+  const cart = products.querySelector('.cart-grid-item');
+
+  cart.addEventListener("click", function(){
+    cart.classList.add("cart-grid-item-bounce");
+
+    setTimeout(() => {
+      cart.classList.remove("cart-grid-item-bounce");
+    }, 800);
+  })
 
   return products;
 }
