@@ -48,7 +48,6 @@ function addToCart(product) {
   cart.push(product);
   console.log(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
-
 }
 
   const addToCartButton = document.querySelectorAll(".cart-grid-item");

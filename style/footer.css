@@ -1,3 +1,5 @@
+/* #region -- Footer --*/
+
 footer {
     background-color: #fff3c8;
     padding: 0rem 0;
@@ -91,7 +93,9 @@ footer {
     color: #DEBC42;
   }
   
+  /* #endregion -- Footer --*/
 
+  /* #region -- Media Querys --*/
   @media screen and (max-width: 768px)
   {
     footer 
@@ -155,3 +159,5 @@ footer {
   }
   
   }
+
+  /* #endregion -- Media Querys --*/

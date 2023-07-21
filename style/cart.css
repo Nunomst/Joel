@@ -9,7 +9,8 @@ main
 {
   height: 90vh;
 }
-  
+
+/* #region -- Cart Style -- */
 
 .cart-checkout-container
 {
@@ -63,16 +64,12 @@ main
   background: transparent;
 }
 
-
-
 table
 {
   width: 100%;
   border-collapse: collapse;
   max-height: 514px;
 }
-
-
 
 .cart-info
 {
@@ -131,7 +128,6 @@ td img
   cursor: pointer;
 }
 
-
 .quantity button:hover {
   background-color: #f9eb9a;
 }
@@ -167,7 +163,9 @@ td img
   color: #DEBC42;
 }
 
+/* #endregion -- Cart Style -- */
 
+/* #region -- Checkout Style -- */
 
 .checkout
 {
@@ -176,15 +174,12 @@ td img
   margin-top: 20px;
 }
 
-
 hr 
 {
   border: 0.1px solid #DEBC42;
   margin-bottom: 1rem;
   opacity: 0.5;
 }
-
-
 
 .checkout
 {
@@ -194,7 +189,6 @@ hr
   margin-bottom: 12rem;
   background-color: #f9eb9a62;
   border-radius: 15px;
-
 }
 
 .coupon-code
@@ -333,7 +327,9 @@ hr
   color: #DEBC42;
 }
 
+/* #endregion -- Checkout Style -- */
 
+/* #region -- Media Querys -- */
 
 @media (max-width: 1122px) {
 
@@ -736,3 +732,5 @@ main
   font-size: 100%;
 }
 }
+
+/* #endregion -- Media Querys -- */
