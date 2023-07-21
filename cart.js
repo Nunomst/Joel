@@ -17,6 +17,18 @@ let main = document.createElement('main');
 let cartCheckoutContainer = document.createElement('div');
 
 
+//lets create a snackbar and toast
+let snackbar = document.createElement("div");
+snackbar.setAttribute("id", "snackbar");
+document.body.appendChild(snackbar);
+
+function snackbarFn(msg) {
+var snackbar = document.getElementById("snackbar");
+snackbar.className = "show";
+setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+snackbar.innerHTML = msg.replace(/['"]+/g, '');
+}
+
 cartCheckoutContainer.classList.add('cart-checkout-container');
 appDiv.appendChild(navbarDesktop());
 appDiv.appendChild(navbarMobile());
@@ -34,10 +46,12 @@ let totalCartPrice = document.querySelector(".total-price-value");
 let cart = JSON.parse(localStorage.getItem('cart'));
 let discountPrice = document.querySelector(".discount-price-value");
 
-
+console.log(cart);
 
 applyCouponButton.addEventListener("click", async () => {
   let coupon = couponInput.value;
+  console.log(coupon);
+  console.log(typeof(coupon))
   try {
     let response = await postCoupon(coupon);
     console.log(response);
@@ -101,7 +115,6 @@ for (let i = 0; i < cart.length; i++) {
   });
 
 
-
   let minusButton = document.querySelectorAll(".btn-minus")[i];
 
   minusButton.addEventListener("click", () => {
@@ -137,30 +150,38 @@ updateTotalCartPrice();
 handleScroll();
 highlightNavItem();
 
+const products = cart.map(item => ({
+  id: item.id,
+  quantity: 1,
+}))
 
 let makePurchaseButton = document.querySelector(".purchase-button button");
 
-makePurchaseButton.addEventListener("click", async () => {
-  let checkoutBody = {
-    products: [],
-    coupon: null,
-  };
+let checkoutBody = {};
+
+let couponCode = ""
+
+makePurchaseButton.addEventListener("click", async () =>  {
+couponCode = couponInput.value;
+
+checkoutBody = {
+  products: products,
+  coupon: couponCode
+}
+
+try {
+  let response = await postCheckout(checkoutBody)
+  console.log(response)
+  snackbarFn("Purchase Sucessful!")
+
+}
+catch(error){
+console.log('Error', error)
+}
 
 
-  try {
-    let response = await postCheckout(checkoutBody);
-    console.log(response);
-    if (response.success) {
-      alert("Purchase successful");
-      localStorage.removeItem("cart");
-      location.href = "/";
-    } else {
-      alert("Purchase failed");
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    alert("Purchase failed");
-  }
+
+
+
+
 });
-
-
