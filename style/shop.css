@@ -215,39 +215,34 @@
 
 /* #region modal */
 .modal {
-  position: fixed; 
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%; 
-  background-color: rgb(0,0,0); 
+  height: 100%;
+  background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .modal-container {
-  display: grid;
-  grid-template-areas:
-    "image product";
+  display: flex;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 50px;
   border: 1px solid #888;
   border-radius: 20px;
   max-width: 800px;
-  height: fit-content;
   box-shadow: 0px 2px 10px 0px #747474;
+  column-gap: 7%;
 }
 
 .modal-image {
-  grid-area: image;
   margin: auto;
   border-radius: 20px;
   height: 75%;
   width: 300px;
-  margin-left: 30px;
   box-shadow: 0px 2px 10px 0px #747474;
   display: flex;
 }
@@ -260,9 +255,10 @@
 }
 
 .modal-products-container {
-  grid-area: "product";
-  align-items: center;
   margin: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 70%;
 }
 
@@ -270,13 +266,6 @@
   margin: auto;
   font-size: 25px;
 }
-
-.product-type {
-  margin-top: 3px;
-  font-size: 13px;
-  color: #95979c;
-}
-
 .product-description {
   margin-top: 20px;
   font-size: 13px;
@@ -287,22 +276,18 @@
   font-size: 20px;
   margin-bottom: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: auto;
-  margin-left: 30px;
-  margin-right: 80px;
+  margin: auto;  
 }
 
 .product-price p{
   display: flex;
-  margin-right: 17.5px;
-  margin-left: 31px;
+  margin-right: 14px;
   width: 70px;
 }
 
 .product-add-cart{
-  margin-left: 100px;
   background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 15px;
@@ -359,62 +344,32 @@
 
 /* #region  media queries */
 
-@media screen and (max-width: 1024px) {
-  .products-grid-container{
-    grid-template-columns: repeat(2, 2fr);
-    gap: 20px;
-  }
-
-  .search-container{
-    margin: auto;
-    margin-top: 60px;
-    width: 100px;
-  }
-
-  .input-search{
-    width: 400px;
-  }
-
-  .cartGo a{
-  text-decoration: none;
-  color: #000;
-  display: inline-flex;
-}
-
-.cartGo p{
-  display: inline-flex;
-  width: 60px;
-  margin: 5px;
-  margin-left: 16px;
-  font-size: 11px;
-}
-
-.cartGo i{
-  margin-left: 7px;
-  margin-top: 4px;
-}
-
-}
-
 @media only screen and (max-width: 768px) {
   .modal-container {
-    display: grid;
-    grid-template-areas:
-    "image"
-    "product";
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
     height: fit-content;
-  }
-
-  .modal-products-container {
-    grid-area: "product";
-    margin: auto;
-    width: 50%;
+    width: 60%;
   }
 
   .modal-image {
-    grid-area: image;
     margin: auto;
+  }
+
+  .cartGo a{
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+  }
+  .modal-image img{
+    max-width: 50%;
+    aspect-ratio: 2/3;
+    object-fit: contain;
+  }
+
+  .modal-products-container{
+    display: flex;
+    flex-direction: column;
   }
 
   .product-price{
@@ -422,11 +377,15 @@
   }
 
   .product-add-cart{
-    margin-left: 40px;
+    margin-top: 10px;
+    align-items: center;
   }
   .products-grid-container{
     grid-template-columns: repeat(2, 2fr);
     gap: 20px;
+  }
+  .product-price{
+    flex-direction: column;
   }
 
   .cartGo a{
@@ -448,140 +407,69 @@
 
 }
 
-@media only screen and (max-width: 600px) {
-  .modal-container {
-    display: grid;
-    grid-template-areas:
-    "image"
-    "product";
-    max-width: 400px;
-    height: fit-content;
+@media only screen and (max-width: 576px) {
+  .modal-container{
+    flex-direction: column;
     margin-bottom: 40px;
+    max-width: 70%;
+    padding: 10%;
+    gap: 30px;
   }
 
-  .modal-products-container {
-    grid-area: "product";
-    margin: auto;
-    width: 50%;
+  .modal-products-container{
+    width: fit-content;
   }
 
-  .modal-image {
-    grid-area: image;
-    margin: auto;
-  }
-
-  .product-price {
-    margin: auto;
-    margin-left: 17px;
-  }
-
-  .product-price i{
-    margin-left: 10px;
-  }
-
-  .products-grid-container{
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-  }
-
-  .input-search{
-    width: 250px;
-  }
-
-  .cartGo p{
-    width: 60px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .modal{
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-container {
-    display: grid;
-    grid-template-areas:
-    "image"
-    "product";
-    width: 300px;
-    height: 520px;
-    margin-bottom: 70px;
-    padding: -10px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-products-container {
-    grid-area: "product";
-    margin: auto;
-    width: 60%;
-  }
-
-  .modal-products-container h2{
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .product-type p{
-    font-size: 11px;
-    text-align: center;
-  }
-
-  .product-description{
-    margin-bottom: 1px;
-  }
-
-  .product-description p{
-    font-size: 12px;
-    text-justify: center;
-    text-align: justify;
+  .cartGo a{
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
   }
 
   .modal-image {
-    grid-area: image;
-    height: 100px;
-    width: 100px;
-    margin-bottom: 10px;
+    width: fit-content;
+    margin-top: 10px;
   }
 
   .modal-image img{
-    margin: auto;
-  }
-  .product-price {
-    margin: auto;
-    margin-left: -10px;
-    font-size: 15px;
-  }
-
-  .product-price i{
-    margin-left: 8px;
-  }
-
-  .product-add-cart{
-    margin-left: 25px;
-    max-width: 100px;
-    text-align: center;
+    aspect-ratio: 2/2;
+    object-fit: contain;
   }
 
   .product-price p{
-    margin-right: 3px;
+    margin-right: 0%;
   }
-
-  .rating-box{
-    justify-content: center;
-    align-items: center;
-    margin-top: -5px;
-  }
-
-  .stars i{
-    font-size: 18px;
+  .products-grid-container{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    margin-bottom: 90px;
   }
 
   .input-search{
     width: 200px;
   }
 
+  .cartGo p{
+    width: 60px;
+  }
+
+  .modal-products-container h2{
+    font-size: 20px;
+  }
+  .cartGo p{
+    display: inline-flex;
+    width: 60px;
+    margin: 5px;
+    margin-left: 16px;
+    font-size: 11px;
+  }
+  
+  .cartGo i{
+    margin-left: 7px;
+    margin-top: 4px;
+  }
 }
+
+
 
 /* #endregion */

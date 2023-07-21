@@ -1,23 +1,19 @@
-
 // this function creates the modal with the product information
 
-export function createModal(img, name, price, description) {
+export function createModal(product) {
   const modal = document.createElement('div');
   modal.innerHTML = `
   <div id="modalSelector" class="modal">
       <div class="modal-container">
         <div class="modal-image">
-          <img src="${img}" alt="foto">
+          <img src="${product.image}" alt="foto">
         </div>
         <div class="modal-products-container">
           <div class="product-name">
-            <h2>${name}</h2>
-          </div>
-          <div class="product-type">
-            <p>Colars</p>
+            <h2>${product.name}</h2>
           </div>
           <div class="product-description">
-            <p>${description}</p>
+            <p>${product.description}</p>
           </div>
           <div class="rating-box">
             <div class="stars">
@@ -29,7 +25,7 @@ export function createModal(img, name, price, description) {
             </div>
           </div>
           <div class="product-price">
-            <p>${price}€</p>
+            <p>${product.price}€</p>
             <div class="product-add-cart">
               <i class="fa-solid fa-cart-shopping"></i>
               <p>Add to cart</p>
@@ -38,23 +34,20 @@ export function createModal(img, name, price, description) {
         </div>
       </div>
     </div>`
-
+    
     return modal;
   }
-  
-  // this function shows the modal
 
-  export function showModal() {
-    const modal = document.getElementById('modalSelector');
-    modal.style.display = 'flex';
-  }
+  // this function shows the modal
+export function showModal() {
+  const modal = document.getElementById('modalSelector');
+  modal.style.display = 'flex';
+}
   
   //this function hides the modal
-
-  export function hideModal() {
-    const modal = document.getElementById('modalSelector');
-    if (modal) {
-      modal.style.display = 'none';
-    }
+export function hideModal() {
+  const modal = document.getElementById('modalSelector');
+  if (modal) {
+    modal.style.display = 'none';
   }
-  
+}

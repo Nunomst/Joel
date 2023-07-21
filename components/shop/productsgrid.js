@@ -12,18 +12,18 @@ export function productsGrid() {
 
 // this is the function that creates the product card inside the grid
 
-export function createProductCard(img, name, price, description) {
+export function createProductCard(product) {
   let products = document.createElement('div');
   products.innerHTML += `<div class="products-grid-item">
     <div class="item-img">
-      <img src="${img}" alt="joia">
+      <img src="${product.image}" alt="joia">
     </div>
     <div class="item-description-container">
       <div class="img-description">
-      <p>${limitString(name, 14)}</p>
+      <p>${limitString(product.name, 14)}</p>
       </div>
       <div class="price-item">
-        ${price}€
+        ${product.price}€
       </div>
     </div>
     <div class="type-container">
@@ -40,7 +40,7 @@ export function createProductCard(img, name, price, description) {
 
   modalActivators.forEach((modalActivator) => {
     modalActivator.addEventListener('click', () => {
-      const modal = createModal(img, name, price, description);
+      const modal = createModal(product);
       document.body.appendChild(modal);
       showModal();
       addModalCloseEvent();

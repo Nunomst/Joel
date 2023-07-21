@@ -112,6 +112,7 @@
 
 .navbar-top ul li a span:nth-child(2) + #lblCartCount{
   position: absolute;
+  visibility: hidden;
   top: 15px;
   right: 4px;
   background-color: #ff0000;
