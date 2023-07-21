@@ -10,6 +10,7 @@ import { createProductCard } from './components/shop/ProductsGrid';
 import { getProducts } from './services/getProducts';
 import { updateCartCount } from './logic/updateCartCount';
 
+
 // #region shopPage logic
 
 
@@ -33,6 +34,8 @@ for(let i = 0; i < productsData.length; i++) {
   products.appendChild(createProductCard(product.image, product.name, product.price, product.description));
 }
 
+
+
 let cart = [];
 
 
@@ -43,12 +46,14 @@ if(localStorage.getItem('cart') !== null) {
 function addToCart(product) {
   for(let i = 0; i < cart.length; i++) {
     if(cart[i].name === product.name) {
-      alert("This product is already in your cart!");
+      // cart[i].numberofitems++;
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
       return;
     }
   }
+  // product.numberofitems = 1;
   cart.push(product);
-  console.log(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -65,6 +70,9 @@ function addToCart(product) {
 
 // #endregion
 
+
 handleScroll();
 highlightNavItem();
+
+
 

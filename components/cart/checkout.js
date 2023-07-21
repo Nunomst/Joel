@@ -6,23 +6,23 @@ export function checkout()
     checkout.classList.add('checkout');
     checkout.innerHTML = ` <div class="coupon-code">
     <p>Have a coupon?</p>
-    <input type="text" placeholder="Coupon code">
-    <button>Apply</button>
+    <input type="text" placeholder="Coupon code" class="couponLbl">
+    <button class="btn-apply-coupon">Apply</button>
     <p class="coupon-status"></p>
   </div>
   <div class="total-price">
    <table>
       <tr>
         <td>Total price:</td>
-        <td class="total-price-value"></td>
+        <td class="total-price-value">0.00€</td>
       </tr>
       <tr>
         <td>Discount:</td>
-        <td>-0.00€</td>
+        <td class="discount-price-value">-0%</td>
       </tr>
       <tr>
-        <td>Total</td>
-        <td>0.00€</td>
+        <td>Final Price</td>
+        <td class="final-price-value">0.00€</td>
       </tr>
    </table>
     <div class="purchase-button">
