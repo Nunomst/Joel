@@ -10,10 +10,19 @@ export function cartTable() {
 
   const cart = getCartFromLocalStorage();
 
-  cart.forEach((product) => {
-    table.appendChild(cartRow(product));
-    table.appendChild(hrRow());
-  });
+  if (cart && cart.length > 0) {
+    cart.forEach((product) => {
+      table.appendChild(cartRow(product));
+      table.appendChild(hrRow());
+    });
+  } else {
+    const emptyCartRow = document.createElement('tr');
+    const emptyCartData = document.createElement('td');
+    emptyCartData.colSpan = 4;
+    emptyCartData.textContent = 'Your cart is empty.';
+    emptyCartRow.appendChild(emptyCartData);
+    table.appendChild(emptyCartRow);
+  }
 
   cartTable.appendChild(table);
 

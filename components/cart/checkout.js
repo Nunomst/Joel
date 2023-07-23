@@ -10,7 +10,7 @@ function updateTotalPrice() {
   console.log(cart)
   
   
-  totalCartElement.textContent = `${totalPrice}`;
+  totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
 }
 
 export function checkout() {
@@ -56,9 +56,14 @@ export function checkout() {
     </div>
   `;
 
-  document.addEventListener('DOMContentLoaded', () => {
+   // Adicione o listener para o evento "cartUpdated"
+   window.addEventListener('cartUpdated', () => {
     updateTotalPrice();
-  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateTotalPrice();
+});
 
   return checkout;
 }
