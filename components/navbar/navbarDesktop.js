@@ -1,4 +1,29 @@
 import '../../style/navbar.css';
+// import { getCartFromLocalStorage } from '../../services/localStorage.js';
+
+// // Function to calculate the total quantity
+// function calculateTotalQuantity(cart){
+//   let totalCart = 0;
+
+//   if (cart) {
+//     for (const item of cart) {
+//       totalCart += item.totalQuantity;
+//     }
+//   }
+
+//   return totalCart;
+// }
+
+// // Function to update the quantity in navbar
+// export function updateCartQuantity() {
+//   const cart = getCartFromLocalStorage();
+//   const cartTotal = calculateTotalQuantity(cart); 
+//   const cartQuantityElement = document.querySelector('#lblCartCount');
+//   cartQuantityElement.textContent = cartTotal;
+// }
+
+// console.log(totalQuantity)
+
 export function navbarDesktop() {
   let navbarDesktop = document.createElement('div');
   navbarDesktop.innerHTML = ` 
@@ -59,7 +84,7 @@ export function navbarDesktop() {
             <span>
               <ion-icon name="cart-outline"></ion-icon>
             </span>
-            <label id="lblCartCount">1</label>
+            <label id="lblCartCount"></label>
           </a>
         </li>
       </ul>
@@ -69,3 +94,5 @@ export function navbarDesktop() {
   `
   return navbarDesktop;
 }
+
+// ${calculateTotalQuantity(getCartFromLocalStorage())}

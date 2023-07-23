@@ -5,7 +5,7 @@ import {footer} from './components/footer/footer.js';
 
 import {handleScroll} from './logic/scrollLogic';
 import {highlightNavItem} from './logic/highlightNavItem';
-
+import { updateCartQuantity } from './services/localStorage.js';
 
 import { getPerson } from './logic/getPerson.js';
 import { carousel } from './logic/carouselLogic.js';
@@ -38,3 +38,4 @@ handleScroll();
 highlightNavItem();
 carousel();
 getPerson();
+updateCartQuantity();

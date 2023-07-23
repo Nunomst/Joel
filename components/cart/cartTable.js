@@ -1,18 +1,20 @@
-import {cartRow } from "./cartRow";
+import { cartRow } from "./cartRow";
 import { hrRow } from "./hrRow";
+import { getCartFromLocalStorage } from "../../services/localStorage.js";
 
 export function cartTable() {
   let cartTable = document.createElement('div');
   cartTable.classList.add('cart-table');
-  
+
   let table = document.createElement('table');
-  table.appendChild(cartRow());
-  table.appendChild(hrRow());
-  table.appendChild(cartRow());
-  table.appendChild(hrRow());
-  table.appendChild(cartRow());
-  table.appendChild(hrRow());
-  table.appendChild(cartRow());
+
+  const cart = getCartFromLocalStorage();
+
+  cart.forEach((product) => {
+    table.appendChild(cartRow(product));
+    table.appendChild(hrRow());
+  });
+
   cartTable.appendChild(table);
 
   return cartTable;
