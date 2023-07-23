@@ -66,8 +66,8 @@ function handleQuantityChange(productId, change) {
   if (newQuantity < 0) {
     newQuantity = 0;
   }
-
   inputQuantity.value = newQuantity;
+  
   updateQuantity(productId, newQuantity);
   updateCartQuantity();
   calculateFullPrice(cart);

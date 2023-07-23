@@ -56,7 +56,6 @@ export function checkout() {
     </div>
   `;
 
-   // Adicione o listener para o evento "cartUpdated"
    window.addEventListener('cartUpdated', () => {
     updateTotalPrice();
 });

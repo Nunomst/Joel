@@ -53,7 +53,7 @@ export function updateQuantity(productId, newQuantity) {
     saveCartToLocalStorage(updateCart);
 }
 
-// This two functions are about the cart in navbar
+// This next two functions are about the cart info in navbar
 
 // Function to calculate the total quantity
 function calculateTotalQuantity(cart){
@@ -82,7 +82,6 @@ export function updateCartQuantity() {
 updateCartQuantity();
 
 // Function to calculate the full price cart
-// Function to calculate the full price cart
 export function calculateFullPrice(cart) {
     let total = 0;
 
@@ -92,11 +91,3 @@ export function calculateFullPrice(cart) {
 
     return total;
 }
-
-// // Function to save the cart in local storage and trigger the custom event
-// export function saveCartToLocalStorage(cart) {
-//     localStorage.setItem('cart', JSON.stringify(cart));
-//     // Disparar um evento personalizado chamado "cartUpdated"
-//     const event = new CustomEvent('cartUpdated', { detail: cart });
-//     window.dispatchEvent(event);
-// }
