@@ -7,9 +7,6 @@ function updateTotalPrice() {
   const cart = getCartFromLocalStorage();
   const totalPrice = calculateFullPrice(cart);
   
-  console.log(cart)
-  
-  
   totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
 }
 
@@ -56,13 +53,13 @@ export function checkout() {
     </div>
   `;
 
-   window.addEventListener('cartUpdated', () => {
-    updateTotalPrice();
-});
+    window.addEventListener('cartUpdated', () => {
+      updateTotalPrice();
+    });
 
-document.addEventListener('DOMContentLoaded', () => {
-  updateTotalPrice();
-});
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTotalPrice();
+    });
 
   return checkout;
 }

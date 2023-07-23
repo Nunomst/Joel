@@ -16,14 +16,13 @@ export async function searchProducts(name)
   if (filteredProducts.length === 0) 
   {
     const noResultMessage = document.createElement('p');
-    noResultMessage.textContent = "Nenhum resultado encontrado.";
+    noResultMessage.textContent = "No results found.";
     productsGridContainer.appendChild(noResultMessage);
   } 
   else 
   {
     filteredProducts.forEach((product) => {
-      const { image, name, price, description } = product;
-      const productCard = createProductCard(image, name, price, description);
+      const productCard = createProductCard(product);
       productsGridContainer.appendChild(productCard);
     });
   }

@@ -2,7 +2,6 @@ import { createModal, showModal, hideModal} from "./modal.js";
 import { addToCart } from '../../services/localStorage.js';
 import { limitString } from "../../logic/limitString.js";
 import { updateCartQuantity } from '../../services/localStorage.js';
-// import { updateCartQuantity } from '../../shop.js';
 
 // This is the component that will be appended to the div with id="app" from index.html that creates the grid of products
 export function productsGrid() {
@@ -21,7 +20,7 @@ export function createProductCard(product) {
     </div>
     <div class="item-description-container">
       <div class="img-description">
-      <p>${limitString(product.name, 14)}</p>
+      <p>${limitString(product.name , 14)}</p>
       </div>
       <div class="price-item">
         ${product.price}€
@@ -38,16 +37,14 @@ export function createProductCard(product) {
 
 // Add to cart logic
 const cartButton = products.querySelectorAll('.cart-grid-item');
-
     cartButton[0].addEventListener('click',() =>{
     addToCart(product);
     updateCartQuantity();
   });
 
 
-// This is the function that creates the modal when the user clicks on the "More        details" button
+// This is the function that creates the modal when the user clicks on the "More details" button
 const modalActivators = products.querySelectorAll('.more-details-item');
-
   modalActivators.forEach((modalActivator) => {
     modalActivator.addEventListener('click', () => {
       const modal = createModal(product);

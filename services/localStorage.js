@@ -81,6 +81,12 @@ export function updateCartQuantity() {
   
 updateCartQuantity();
 
+// Function to update the total price of the product in the cart row
+export function updateTotalPrice(totalPriceElement, productPrice, productQuantity) {
+    const totalPrice = (productPrice * productQuantity).toFixed(2);
+    totalPriceElement.textContent = `${totalPrice}€`;
+}
+
 // Function to calculate the full price cart
 export function calculateFullPrice(cart) {
     let total = 0;

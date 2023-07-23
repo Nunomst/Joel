@@ -1,4 +1,4 @@
-import { updateCartQuantity, updateQuantity, removeFromCart, calculateFullPrice, getCartFromLocalStorage } from '../../services/localStorage.js';
+import { updateCartQuantity, updateQuantity, removeFromCart, calculateFullPrice, getCartFromLocalStorage , updateTotalPrice} from '../../services/localStorage.js';
 
 export function cartRow(product) {
   const cartRow = document.createElement('tr');
@@ -78,7 +78,7 @@ function handleQuantityChange(productId, change) {
 }
 
 // Function to update the total price of the product in the cart row
-function updateTotalPrice(totalPriceElement, productPrice, productQuantity) {
-  const totalPrice = (productPrice * productQuantity).toFixed(2);
-  totalPriceElement.textContent = `${totalPrice}€`;
-}
+// function updateTotalPrice(totalPriceElement, productPrice, productQuantity) {
+//   const totalPrice = (productPrice * productQuantity).toFixed(2);
+//   totalPriceElement.textContent = `${totalPrice}€`;
+// }
