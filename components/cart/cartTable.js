@@ -15,7 +15,8 @@ export function cartTable() {
       table.appendChild(cartRow(product));
       table.appendChild(hrRow());
     });
-  } else {
+  } 
+  else {
     const emptyCartRow = document.createElement('tr');
     const emptyCartData = document.createElement('td');
     emptyCartData.colSpan = 4;

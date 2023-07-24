@@ -1,16 +1,10 @@
 import { getCartFromLocalStorage, calculateFullPrice } from '../../services/localStorage.js';
+import { postCoupon } from '../../services/postCoupon.js';
 
-// Function to update the total price in the checkout page
-function updateTotalPrice() {
-  const totalCartElement = document.getElementById('total-cart');
-  
-  const cart = getCartFromLocalStorage();
-  const totalPrice = calculateFullPrice(cart);
-  
-  totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
-}
+
 
 export function checkout() {
+  let totalPrice = 0;
   let checkout = document.createElement('div');
   checkout.classList.add('checkout');
   checkout.innerHTML = ` 
@@ -28,11 +22,11 @@ export function checkout() {
         </tr>
         <tr>
           <td>Discount:</td>
-          <td>-$20.00</td>
+          <td class="discount-value"></td>
         </tr>
         <tr>
           <td>Total</td>
-          <td>$180.00</td>
+          <td class="final-price"></td>
         </tr>
       </table>
       <div class="purchase-button">
@@ -53,13 +47,66 @@ export function checkout() {
     </div>
   `;
 
-    window.addEventListener('cartUpdated', () => {
-      updateTotalPrice();
-    });
+  // Select button and input
+  const applyButton = checkout.querySelector('button');
+  const couponInput = checkout.querySelector('input');
 
-    document.addEventListener('DOMContentLoaded', () => {
-      updateTotalPrice();
-    });
+  // Logic to validate coupon
+  applyButton.addEventListener('click', async () => {
+    const couponCode = couponInput.value.trim();
+
+    if (couponCode !== '') {
+      try {
+        const response = await postCoupon(couponCode);
+        console.log(response)
+        const discountValue = parseFloat(response.discount)
+        console.log(discountValue)
+
+        // Select coupon status
+        const couponStatus = checkout.querySelector('.coupon-status');
+        couponStatus.textContent = 'Coupon applied successfully!';
+
+        // Select discount class
+        const discountClass = checkout.querySelector('.discount-value');
+        discountClass.textContent = `-${discountValue}%`
+
+        // Select final price class and logic
+        const finalPrice = checkout.querySelector('.final-price');
+        let finalCartPrice = totalPrice - (discountValue * 0.10);
+        finalPrice.textContent = `${finalCartPrice}€`
+        
+      } 
+      catch (error) {
+      console.error('Error applying coupon:', error);
+
+      // Select coupon status
+      const couponStatus = checkout.querySelector('.coupon-status');
+      couponStatus.textContent = 'Invalid coupon code. Please try again.';
+      }
+    }
+  });
+
+  // Function to update the total price in the checkout page
+  function updateTotalPrice() {
+    const totalCartElement = document.getElementById('total-cart');
+    
+    const cart = getCartFromLocalStorage();
+    totalPrice = calculateFullPrice(cart);
+    
+    totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
+  }
+
+  window.addEventListener('cartUpdated', () => {
+    updateTotalPrice();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateTotalPrice();
+  });
 
   return checkout;
 }
+
+
+
+        // YNAHPEY

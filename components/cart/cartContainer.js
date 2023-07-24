@@ -7,5 +7,4 @@ export function cartContainer()
     cartContainer.innerHTML = `<H1>Your Cart</H1>` ; 
     cartContainer.appendChild(cartTable());
     return cartContainer;
-
 }
