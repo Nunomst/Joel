@@ -35,7 +35,7 @@ handleScroll();
 highlightNavItem();
 updateCartQuantity();
 
-
+// Search bar logic
 const searchInput = document.getElementsByClassName("input-search")[0];
 searchInput.addEventListener('input', (event) => {
   const query = event.target.value;

@@ -1,10 +1,9 @@
 import { getCartFromLocalStorage, calculateFullPrice } from '../../services/localStorage.js';
 import { postCoupon } from '../../services/postCoupon.js';
 
-
-
 export function checkout() {
   let totalPrice = 0;
+  let response;
   let checkout = document.createElement('div');
   checkout.classList.add('checkout');
   checkout.innerHTML = ` 
@@ -69,11 +68,11 @@ export function checkout() {
         // Select discount class
         const discountClass = checkout.querySelector('.discount-value');
         discountClass.textContent = `-${discountValue}%`
-
+        // finalPrice = totalCartPrice - (totalPrice * (discountValue / 100)); 
         // Select final price class and logic
         const finalPrice = checkout.querySelector('.final-price');
-        let finalCartPrice = totalPrice - (discountValue * 0.10);
-        finalPrice.textContent = `${finalCartPrice}€`
+        let finalCartPrice = totalPrice - (totalPrice * (discountValue / 100)); 
+        finalPrice.textContent = `${finalCartPrice.toFixed(2)}€`
         
       } 
       catch (error) {
