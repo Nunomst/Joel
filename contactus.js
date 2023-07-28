@@ -24,24 +24,26 @@ appDiv.appendChild(footer());
 
 let personInfo = JSON.parse(localStorage.getItem('personInfo'));
 
-if (!personInfo) 
-{
-    personInfo = await getPerson();
-    localStorage.setItem('personInfo', JSON.stringify(personInfo));
-} 
-else 
-{
-    const staffDiv = appDiv.querySelector(".staff-container");
+const staffDiv = appDiv.querySelector(".staff-container");
 
-    for (let i = 0; i < 2; i++) {
-      const person = personInfo[i];
-      staffDiv.appendChild(staff(person.picture, person.firstName, person.lastName));
-    }
+if (!personInfo)
+
+{
+  personInfo = await getPerson();
+
+  localStorage.setItem('personInfo', JSON.stringify(personInfo));
+}
+
+for (let i = 0; i < 2; i++)
+
+{
+  const person = personInfo[i];
+
+  staffDiv.appendChild(staff(person.picture, person.firstName, person.lastName));
 }
 
 handleScroll();
 highlightNavItem();
 carousel();
-getPerson();
 updateCartQuantity();
 

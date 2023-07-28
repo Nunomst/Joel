@@ -1,4 +1,4 @@
-import { getCoupon, totalPrice, finalPrice } from '../../services/localStorage.js';
+import { getCoupon, totalPrice, finalPrice, processCheckout } from '../../services/localStorage.js';
 
 export function checkout() {
   let checkout = document.createElement('div');
@@ -46,12 +46,19 @@ export function checkout() {
   // Select button and input
   const applyButton = checkout.querySelector('button');
   const couponInput = checkout.querySelector('input');
+  const checkoutBtn = checkout.querySelector('.purchase-button');
 
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
     const couponCode = couponInput.value.trim();
     getCoupon(couponCode)
   });
+
+  checkoutBtn.addEventListener('click', async () => {
+    console.log(couponInput.value);
+    processCheckout(couponInput.value);
+  });
+
 
   window.addEventListener('cartUpdated', () => {
     totalPrice();
@@ -66,4 +73,4 @@ export function checkout() {
   return checkout;
 }
 
-// YNAHPEY
+// RIHMDLL

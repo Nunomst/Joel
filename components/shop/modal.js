@@ -21,7 +21,7 @@ export function createModal(product) {
           <div class="rating-box">
             <div class="stars" id="rating-stars">
               ${getStarIcons(product.rating)}       
-              <p>Classificação: ${product.rating}</p>
+              <p>Rating: ${product.rating}</p>
             </div>
           </div>
           <div class="product-price">

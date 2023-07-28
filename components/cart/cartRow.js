@@ -57,7 +57,7 @@ function handleRemoveFromCart(productId) {
   calculateFullPrice(cart);
   totalPrice();
   finalPrice(totalPrice()); 
-  handleHrExeptions()
+  handleHrExeptions();
 }
 
 // Function to change quantity when click on "+" or "-"

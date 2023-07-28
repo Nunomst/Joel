@@ -1,4 +1,6 @@
 import { postCoupon } from '../services/postCoupon.js';
+import {postCheckout} from '../services/postCheckout.js'
+import {snackbar} from '../components/cart/snackbar.js'
 
 let discountValue = 0;
 
@@ -157,3 +159,31 @@ export function finalPrice(totalPrice) {
     return finalPrice;
 }
 
+// Function to send checkout to api
+export async function processCheckout(couponCode){
+    const cart = getCartFromLocalStorage();
+
+    const product = cart.map(item => ({
+        id: item.id,
+        quantity: item.totalQuantity,
+        })
+    );
+    const response = couponCode
+    console.log(product)
+    console.log(response)
+    const checkoutBody = {
+        products: product,
+        coupon: response,
+    }
+    console.log(checkoutBody);
+
+    try {
+        let checkoutReponse = await postCheckout(checkoutBody)
+        console.log(checkoutReponse)
+        snackbar("Purchase Sucessful!")
+    } 
+    catch (error) {
+        console.log('Error', error)
+        snackbar("ERROR! Invalid Purchase!")
+    }
+}
