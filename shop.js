@@ -1,7 +1,7 @@
 import './style/shop.css';
 
 import { updateCartQuantity } from './services/localStorage.js';
-import {navbarDesktop}        from './components/navbar/navbarDesktop.js';
+import { navbarDesktop }      from './components/navbar/navbarDesktop.js';
 import { navbarMobile }       from './components/navbar/navbarMobile.js';
 import { handleScroll }       from './logic/scrollLogic';
 import { highlightNavItem }   from './logic/highlightNavItem';
@@ -10,6 +10,7 @@ import { productsGrid }       from './components/shop/productsgrid';
 import { createProductCard }  from './components/shop/productsgrid';
 import { getProducts }        from './services/getProducts';
 import { searchProducts }     from './logic/searchLogic';
+import { footer }             from './components/footer/footer.js';
 
 
 // Get the div with id="app" from index.html and append the components to it
@@ -20,6 +21,7 @@ appDiv.appendChild(navbarDesktop());
 appDiv.appendChild(navbarMobile());
 appDiv.appendChild(searchComponent());
 appDiv.appendChild(productsGrid());
+appDiv.appendChild(footer());
 let products = appDiv.querySelector(".products-grid-container");
 
 // Get products from server with the function getProducts() from services/getProducts.js

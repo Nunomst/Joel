@@ -1,9 +1,6 @@
-import { getCartFromLocalStorage, calculateFullPrice } from '../../services/localStorage.js';
-import { postCoupon } from '../../services/postCoupon.js';
+import { getCoupon, totalPrice, finalPrice } from '../../services/localStorage.js';
 
 export function checkout() {
-  let totalPrice = 0;
-  let response;
   let checkout = document.createElement('div');
   checkout.classList.add('checkout');
   checkout.innerHTML = ` 
@@ -53,59 +50,20 @@ export function checkout() {
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
     const couponCode = couponInput.value.trim();
-
-    if (couponCode !== '') {
-      try {
-        const response = await postCoupon(couponCode);
-        console.log(response)
-        const discountValue = parseFloat(response.discount)
-        console.log(discountValue)
-
-        // Select coupon status
-        const couponStatus = checkout.querySelector('.coupon-status');
-        couponStatus.textContent = 'Coupon applied successfully!';
-
-        // Select discount class
-        const discountClass = checkout.querySelector('.discount-value');
-        discountClass.textContent = `-${discountValue}%`
-        // finalPrice = totalCartPrice - (totalPrice * (discountValue / 100)); 
-        // Select final price class and logic
-        const finalPrice = checkout.querySelector('.final-price');
-        let finalCartPrice = totalPrice - (totalPrice * (discountValue / 100)); 
-        finalPrice.textContent = `${finalCartPrice.toFixed(2)}€`
-        
-      } 
-      catch (error) {
-      console.error('Error applying coupon:', error);
-
-      // Select coupon status
-      const couponStatus = checkout.querySelector('.coupon-status');
-      couponStatus.textContent = 'Invalid coupon code. Please try again.';
-      }
-    }
+    getCoupon(couponCode)
   });
 
-  // Function to update the total price in the checkout page
-  function updateTotalPrice() {
-    const totalCartElement = document.getElementById('total-cart');
-    
-    const cart = getCartFromLocalStorage();
-    totalPrice = calculateFullPrice(cart);
-    
-    totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
-  }
-
   window.addEventListener('cartUpdated', () => {
-    updateTotalPrice();
+    totalPrice();
+    finalPrice(totalPrice());
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    updateTotalPrice();
+    totalPrice();
+    finalPrice(totalPrice());
   });
 
   return checkout;
 }
 
-
-
-        // YNAHPEY
+// YNAHPEY

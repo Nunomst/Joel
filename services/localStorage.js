@@ -1,3 +1,7 @@
+import { postCoupon } from '../services/postCoupon.js';
+
+let discountValue = 0;
+
 // Function gets the cart from local storage
 export function getCartFromLocalStorage() {
     return JSON.parse(localStorage.getItem('cart'));
@@ -97,3 +101,59 @@ export function calculateFullPrice(cart) {
 
     return total;
 }
+
+// Function to get the coupon -> from checkout.js
+export async function getCoupon(couponCode) {
+    
+    if (couponCode !== '') {
+        try {
+          const response = await postCoupon(couponCode);
+          discountValue = parseFloat(response.discount)
+    
+          // Select coupon status
+          const couponStatus = document.querySelector('.coupon-status');
+          couponStatus.textContent = 'Coupon applied successfully!';
+    
+          // Select discount class
+          const discountClass = document.querySelector('.discount-value');
+          discountClass.textContent = `-${discountValue}%`
+    
+          // Select final price class and logic
+          let finalPricee = document.querySelector('.final-price');
+          finalPricee.textContent = `${finalPrice(totalPrice())}`;
+          
+        } 
+        catch (error) {
+        console.error('Error applying coupon:', error);
+    
+        // Select coupon status
+        const couponStatus = document.querySelector('.coupon-status');
+        couponStatus.textContent = 'Invalid coupon code. Please try again.';
+        }
+      }
+}
+
+// Function to calculate the final price without discount
+export function totalPrice() {
+  const cart = getCartFromLocalStorage();
+
+  let totalPrice = calculateFullPrice(cart);
+
+      const totalCartElement = document.getElementById('total-cart');
+      totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
+
+  return totalPrice;
+}
+
+// Function to calculate the final price with discount
+export function finalPrice(totalPrice) {
+    
+    let finalCartPrice = totalPrice - (totalPrice * (discountValue / 100)); 
+    let finalPrice = `${finalCartPrice.toFixed(2)}€`
+
+        const finalPricee = document.querySelector('.final-price');
+        finalPricee.textContent = `${finalCartPrice.toFixed(2)}€`;
+
+    return finalPrice;
+}
+
