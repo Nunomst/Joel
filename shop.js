@@ -15,12 +15,14 @@ import { footer }             from './components/footer/footer.js';
 
 // Get the div with id="app" from index.html and append the components to it
 let appDiv = document.getElementById('app');
+let main = document.createElement('main')
 
 // Components
 appDiv.appendChild(navbarDesktop());
 appDiv.appendChild(navbarMobile());
-appDiv.appendChild(searchComponent());
-appDiv.appendChild(productsGrid());
+appDiv.appendChild(main);
+main.appendChild(searchComponent());
+main.appendChild(productsGrid());
 appDiv.appendChild(footer());
 let products = appDiv.querySelector(".products-grid-container");
 

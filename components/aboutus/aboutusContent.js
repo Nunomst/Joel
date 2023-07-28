@@ -35,7 +35,7 @@ export function aboutus () {
         <div class="aboutus-description-left">
           <h1>Our Values</h1>
           <p>
-            At our jewelry business, we are guided by core values. With uncompromising craftsmanship and ethically sourced materials, we prioritize quality. Honest, transparent relationships built on integrity are paramount. Our creativity drives innovative designs that inspire. Personalization celebrates individuality through tailored service. Sustainability is a priority, preserving our planet
+            At our jewelry business, we are guided by core values. With uncompromising craftsmanship and ethically sourced materials, we prioritize quality. Honest, transparent relationships built on integrity are paramount. Our creativity drives innovative designs that inspire. Personalization celebrates individuality through tailored service. Sustainability is a priority, preserving our planet.
           </p>
         </div>
       </div>

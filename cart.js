@@ -7,6 +7,7 @@ import {highlightNavItem}   from './logic/highlightNavItem';
 import {cartContainer}      from './components/cart/cartContainer.js';
 import {checkout}           from './components/cart/checkout.js';
 import {updateCartQuantity} from './services/localStorage.js';
+import { handleHrRowRemove} from './logic/hrRowRemoval';
 
 
 let appDiv = document.getElementById('app');
@@ -27,3 +28,4 @@ appDiv.appendChild(footer());
 handleScroll();
 highlightNavItem();
 updateCartQuantity();
+handleHrRowRemove();

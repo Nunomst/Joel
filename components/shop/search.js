@@ -9,7 +9,7 @@ export function searchComponent() {
         <input class="input-search" type="text">
       </form>
       <div class="cartGo">
-        <a href="cart.html">
+          <a href="cart.html">
           <i class="fa-solid fa-cart-shopping"></i>
           <p>Go to cart</p>
         </a>

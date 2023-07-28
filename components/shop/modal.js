@@ -15,19 +15,13 @@ export function createModal(product) {
           <div class="product-name">
             <h2>${product.name}</h2>
           </div>
-          <div class="product-type">
-            <p>Colars</p>
-          </div>
           <div class="product-description">
             <p>${product.description}</p>
           </div>
           <div class="rating-box">
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+            <div class="stars" id="rating-stars">
+              ${getStarIcons(product.rating)}       
+              <p>Classificação: ${product.rating}</p>
             </div>
           </div>
           <div class="product-price">
@@ -41,34 +35,43 @@ export function createModal(product) {
       </div>
     </div>`
 
-  // Add products button to cart
+    const addButton = modal.querySelectorAll('.product-add-cart');
 
-  const addButton = modal.querySelectorAll('.product-add-cart');
+addButton[0].addEventListener('click',() =>{
+  addToCart(product);
+  updateCartQuantity();
+})
 
-  addButton[0].addEventListener('click',() =>{
-    addToCart(product);
-    updateCartQuantity();
-  })
 
     return modal;
   }
 
+  function getStarIcons(rating) {
+    const filledStars = Math.round(rating); // Arredonda para o número inteiro mais próximo
+    const maxStars = 5;
+    let starIcons = '';
   
-  // this function shows the modal
-
-  export function showModal() {
-    const modal = document.getElementById('modalSelector');
-    if(modal) {
-      modal.style.display = 'flex';
+    for (let i = 1; i <= maxStars; i++) {
+      if (i <= filledStars) {
+        starIcons += '<i class="fa-solid fa-star"></i>'; // Ícone de estrela preenchida
+      } else {
+        starIcons += '<i class="fa-solid fa-star-stroke"></i>'; // Ícone de estrela vazia
+      }
     }
+  
+    return starIcons;
   }
+
+  // this function shows the modal
+export function showModal() {
+  const modal = document.getElementById('modalSelector');
+  modal.style.display = 'flex';
+}
   
   //this function hides the modal
-
-  export function hideModal() {
-    const modal = document.getElementById('modalSelector');
-    if (modal) {
-      modal.style.display = 'none';
-    }
+export function hideModal() {
+  const modal = document.getElementById('modalSelector');
+  if (modal) {
+    modal.style.display = 'none';
   }
-  
+}

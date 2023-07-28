@@ -15,44 +15,51 @@ export function productsGrid() {
 export function createProductCard(product) {
   let products = document.createElement('div');
   products.innerHTML += `<div class="products-grid-item">
-    <div class="item-img">
-      <img src="${product.image}" alt="joia">
+  <div class="item-img">
+    <img src="${product.image}" alt="joia">
+  </div>
+  <div class="item-description-container">
+    <div class="img-description">
+    <p>${limitString(product.name, 14)}</p>
     </div>
-    <div class="item-description-container">
-      <div class="img-description">
-      <p>${limitString(product.name , 14)}</p>
-      </div>
-      <div class="price-item">
-        ${product.price}€
-      </div>
+    <div class="price-item">
+      ${product.price}€
     </div>
-    <div class="type-container">
-      <p class="type-item">Rings</p>
-      </div>
-      <div class="more-details-container">
-      <p class="more-details-item">More details</p>
-      <ion-icon class="cart-grid-item" name="cart-outline"></ion-icon>
-    </div>
-  </div>`;
+  </div>
+    <div class="more-details-container">
+    <p class="more-details-item">More details</p>
+    <ion-icon class="cart-grid-item" name="cart-outline"></ion-icon>
+  </div>
+</div>`;
 
-// Add to cart logic
-const cartButton = products.querySelectorAll('.cart-grid-item');
-    cartButton[0].addEventListener('click',() =>{
-    addToCart(product);
-    updateCartQuantity();
-  });
-
-
-// This is the function that creates the modal when the user clicks on the "More details" button
-const modalActivators = products.querySelectorAll('.more-details-item');
-  modalActivators.forEach((modalActivator) => {
-    modalActivator.addEventListener('click', () => {
-      const modal = createModal(product);
-      document.body.appendChild(modal);
-      showModal();
-      addModalCloseEvent();
+  // Add to cart logic
+  const cartButton = products.querySelectorAll('.cart-grid-item');
+      cartButton[0].addEventListener('click',() =>{
+      addToCart(product);
+      updateCartQuantity();
     });
-  });
+
+
+  // This is the function that creates the modal when the user clicks on the "More details" button
+  const modalActivators = products.querySelectorAll('.more-details-item');
+    modalActivators.forEach((modalActivator) => {
+      modalActivator.addEventListener('click', () => {
+        const modal = createModal(product);
+        document.body.appendChild(modal);
+        showModal();
+        addModalCloseEvent();
+      });
+    });
+
+  // Animation button logic
+  const cart = products.querySelector('.cart-grid-item');
+  cart.addEventListener("click", function(){
+    cart.classList.add("cart-grid-item-bounce");
+
+    setTimeout(() => {
+      cart.classList.remove("cart-grid-item-bounce");
+    }, 800);
+  })
 
   return products;
 }

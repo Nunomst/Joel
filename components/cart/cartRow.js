@@ -1,22 +1,24 @@
 import { updateCartQuantity, updateQuantity, removeFromCart, calculateFullPrice, getCartFromLocalStorage , updateTotalPrice, totalPrice, finalPrice} from '../../services/localStorage.js';
+import { limitString } from '../../logic/limitString.js';
 
 export function cartRow(product) {
   const cartRow = document.createElement('tr');
+  cartRow.classList.add('cart-row')
   cartRow.setAttribute('data-product-id', product.id);
   cartRow.innerHTML = `
     <td>
       <div class="cart-info">
         <img src="${product.image}" alt="" class="product-image">
         <div class="product-info">
-          <p>${product.name}</p>
-          <small>${product.price}</small>
+        <p>${limitString(product.name, 51)}</p>
+          <small>${product.price}€</small>
         </div>
       </div>
     </td>
     <td>
       <div class="quantity">
         <button class="btn-minus">-</button>
-        <input type="number" value="${product.totalQuantity}" class="product-quantity" disabled>
+        <input type="text" value="${product.totalQuantity}" class="product-quantity" disabled>
         <button class="btn-plus">+</button>
       </div>
     </td>
@@ -55,6 +57,7 @@ function handleRemoveFromCart(productId) {
   calculateFullPrice(cart);
   totalPrice();
   finalPrice(totalPrice()); 
+  handleHrExeptions()
 }
 
 // Function to change quantity when click on "+" or "-"
@@ -80,3 +83,23 @@ function handleQuantityChange(productId, change) {
   const totalPriceElement = cartRow.querySelector('.total-price');
   updateTotalPrice(totalPriceElement, productPrice, newQuantity);
 }
+
+// 
+function handleHrExeptions() {
+  let cartRows = document.querySelectorAll('tr[data-product-id]');
+  let hrElements = document.querySelectorAll('.hr-row');
+
+  if (cartRows.length === 1) {
+    hrElements.forEach(hr => hr.remove());
+  }
+
+  if (cartRows.length === 0) {
+    let table = document.querySelector('table');
+    let emptyCartRow = document.createElement('tr');
+    let emptyCartData = document.createElement('td');
+    emptyCartData.colSpan = 4;
+    emptyCartData.textContent = 'Your cart is empty.';
+    emptyCartRow.appendChild(emptyCartData);
+    table.appendChild(emptyCartRow);
+  }
+} 

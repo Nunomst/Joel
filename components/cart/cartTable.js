@@ -7,13 +7,20 @@ export function cartTable() {
   cartTable.classList.add('cart-table');
 
   let table = document.createElement('table');
+  let hrElements = []; 
 
   const cart = getCartFromLocalStorage();
 
   if (cart && cart.length > 0) {
-    cart.forEach((product) => {
+    cart.forEach((product, i) => {
       table.appendChild(cartRow(product));
-      table.appendChild(hrRow());
+        // Add hr element after each row except the last one
+        if (i < cart.length - 1) 
+        {
+        let hr = hrRow();
+        table.appendChild(hr);
+        hrElements.push(hr);
+        } 
     });
   } 
   else {
