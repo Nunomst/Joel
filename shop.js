@@ -24,6 +24,7 @@ let products = appDiv.querySelector(".products-grid-container");
 
 // get products from server with the function getProducts() from services/getProducts.js
 const productsData = await getProducts();
+console.log(productsData);
 
 // create product cards with the function createProductCard() from components/productsGrid/ProductsGrid.js
 for(let i = 0; i < productsData.length; i++) {

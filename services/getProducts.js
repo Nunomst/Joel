@@ -15,6 +15,7 @@ export async function getProducts() {
                 image: productData.image,
                 description: productData.description,
                 quantity: productData.quantity,
+                rating: productData.rating,
               });
             });
             return products;

@@ -16,12 +16,9 @@ export function createModal(product) {
             <p>${product.description}</p>
           </div>
           <div class="rating-box">
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+            <div class="stars" id="rating-stars">
+              ${getStarIcons(product.rating)}       
+              <p>Classificação: ${product.rating}</p>
             </div>
           </div>
           <div class="product-price">
@@ -34,8 +31,25 @@ export function createModal(product) {
         </div>
       </div>
     </div>`
-    
+
+
     return modal;
+  }
+
+  function getStarIcons(rating) {
+    const filledStars = Math.round(rating); // Arredonda para o número inteiro mais próximo
+    const maxStars = 5;
+    let starIcons = '';
+  
+    for (let i = 1; i <= maxStars; i++) {
+      if (i <= filledStars) {
+        starIcons += '<i class="fa-solid fa-star"></i>'; // Ícone de estrela preenchida
+      } else {
+        starIcons += '<i class="fa-solid fa-star-stroke"></i>'; // Ícone de estrela vazia
+      }
+    }
+  
+    return starIcons;
   }
 
   // this function shows the modal

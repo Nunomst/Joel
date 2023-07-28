@@ -26,9 +26,6 @@ export function createProductCard(product) {
         ${product.price}€
       </div>
     </div>
-    <div class="type-container">
-      <p class="type-item">Rings</p>
-      </div>
       <div class="more-details-container">
       <p class="more-details-item">More details</p>
       <ion-icon class="cart-grid-item" name="cart-outline"></ion-icon>
