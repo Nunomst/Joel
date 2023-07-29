@@ -50,12 +50,19 @@ export function checkout() {
   const cart = getCartFromLocalStorage();
 
 
-
-
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
     const couponCode = couponInput.value.trim();
-    localStorage.setItem('coupon', couponCode);
+    const validCoupon = await getCoupon(couponCode);
+
+    if(validCoupon != null)
+    {
+      localStorage.setItem('coupon', couponCode);
+    }
+    else
+    {
+      localStorage.removeItem('coupon');
+    }
     getCoupon(couponCode)
   });
 
@@ -83,7 +90,7 @@ export function checkout() {
       couponInput.value = savedCoupon;
     }
 
-    if(cart.length === 0)
+    if(!cart || cart.length === 0)
     {
       checkoutBtn.setAttribute('disabled', '')
       checkoutBtn.classList.add("btn-purchase-disabled");

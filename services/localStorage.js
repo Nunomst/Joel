@@ -111,6 +111,11 @@ export function updateTotalPrice(totalPriceElement, productPrice, productQuantit
 
 // Function to calculate the full price cart
 export function calculateFullPrice(cart) {
+    if(!cart)
+    {
+        cart = [];
+    }
+    
     let total = 0;
 
     for (const product of cart) {
@@ -127,18 +132,19 @@ export async function getCoupon(couponCode) {
         try {
           const response = await postCoupon(couponCode);
           discountValue = parseFloat(response.discount)
-    
+          
           // Select coupon status
           const couponStatus = document.querySelector('.coupon-status');
           couponStatus.textContent = 'Coupon applied successfully!';
-    
+          
           // Select discount class
           const discountClass = document.querySelector('.discount-value');
           discountClass.textContent = `-${discountValue}%`
-    
+          
           // Select final price class and logic
           let finalPricee = document.querySelector('.final-price');
           finalPricee.textContent = `${finalPrice(totalPrice())}`;
+          return couponCode;
           
         } 
         catch (error) {
@@ -147,6 +153,7 @@ export async function getCoupon(couponCode) {
         // Select coupon status
         const couponStatus = document.querySelector('.coupon-status');
         couponStatus.textContent = 'Invalid coupon code. Please try again.';
+        return null;
         }
       }
 }
@@ -213,7 +220,6 @@ export async function processCheckout(couponCode){
 
 // Function to clear LocalStorage
 export function clearCartLocalStorage() {
-    let cart = getCartFromLocalStorage();
     const cena = document.querySelector('.cart-table');
     const updateCart = [];
 
