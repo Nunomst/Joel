@@ -1,4 +1,4 @@
-import { getCoupon, totalPrice, finalPrice, processCheckout } from '../../services/localStorage.js';
+import { getCoupon, totalPrice, finalPrice, processCheckout, clearCartLocalStorage } from '../../services/localStorage.js';
 
 export function checkout() {
   let checkout = document.createElement('div');
@@ -52,12 +52,16 @@ export function checkout() {
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
     const couponCode = couponInput.value.trim();
+    localStorage.setItem('coupon', couponCode);
     getCoupon(couponCode)
   });
 
   checkoutBtn.addEventListener('click', async () => {
     console.log(couponInput.value);
     processCheckout(couponInput.value);
+    clearCartLocalStorage();
+    couponInput.value = "";
+    localStorage.removeItem('coupon');
   });
 
   window.addEventListener('cartUpdated', () => {
@@ -68,13 +72,14 @@ export function checkout() {
   document.addEventListener('DOMContentLoaded', () => {
     totalPrice();
     finalPrice(totalPrice());
+    
+    const savedCoupon = localStorage.getItem('coupon');
+
+    if(savedCoupon)
+    {
+      couponInput.value = savedCoupon;
+    }
   });
-
-
-    // localStorage.setItem('coupon', couponInput.value);
-
-
 
   return checkout;
 }
-

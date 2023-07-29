@@ -9,10 +9,10 @@ export function snackbar(msg, success) {
 
     if(success)
     {
-        snackbar.style.backgroundColor = "green"
+        snackbar.style.backgroundColor = "#4BB543"
     }
     else
     {
-        snackbar.style.backgroundColor = "red";
+        snackbar.style.backgroundColor = "#DC3545";
     }
 }

@@ -200,6 +200,7 @@ export async function processCheckout(couponCode){
             snackbar("ERROR! Invalid Purchase!", false)
         }
         else{
+            clearCartLocalStorage();
             snackbar("Purchase Successful!", true)
         }
     } 
@@ -207,4 +208,18 @@ export async function processCheckout(couponCode){
         console.log('Error', error)
         snackbar("ERROR! Invalid Purchase!", false)
     }
+}
+
+// Function to clear LocalStorage
+export function clearCartLocalStorage() {
+    let cart = getCartFromLocalStorage();
+    const cena = document.querySelector('.cart-table');
+    const updateCart = [];
+
+    saveCartToLocalStorage(updateCart);
+    updateCartQuantity();
+    
+    cena.innerHTML = 'Your cart is empty.';
+
+    console.log(cart);
 }

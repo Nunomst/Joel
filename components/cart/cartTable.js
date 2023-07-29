@@ -34,5 +34,7 @@ export function cartTable() {
 
   cartTable.appendChild(table);
 
+  cartTable.cartTableElement = table;
+
   return cartTable;
 }
