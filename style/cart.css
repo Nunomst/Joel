@@ -314,7 +314,7 @@ hr
   padding: 1rem;
 }
 
-.purchase-button button
+.btn-purchase
 {
   width: 100%;
   height: 2.4rem;
@@ -328,9 +328,24 @@ hr
   transition: background-color 0.3s ease;
 }
 
-.purchase-button button:hover
+.btn-purchase:hover
 {
   background-color: #f9eb9a;
+}
+
+.btn-purchase[disabled=disabled], .btn-purchase:disabled
+{
+  width: 100%;
+  height: 2.4rem;
+  border: 1px solid #b3b1ad;
+  border-radius: 5px;
+  background-color: #b3b1ad;
+  opacity: 0.6;
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: default;
+  transition: background-color 0.3s ease;
 }
 
 .payment-options

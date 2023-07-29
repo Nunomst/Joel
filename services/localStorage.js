@@ -196,7 +196,8 @@ export async function processCheckout(couponCode){
 
         let checkoutReponse = await postCheckout(checkoutBody)
         console.log(checkoutReponse)
-        if(cart.length === 0){
+        if(cart.length === 0)
+        {
             snackbar("ERROR! Invalid Purchase!", false)
         }
         else{
@@ -221,5 +222,7 @@ export function clearCartLocalStorage() {
     
     cena.innerHTML = 'Your cart is empty.';
 
-    console.log(cart);
+    const checkoutBtn = document.querySelector('.btn-purchase');
+    checkoutBtn.setAttribute('disabled', '');
+    checkoutBtn.classList.add("btn-purchase-disabled");
 }
