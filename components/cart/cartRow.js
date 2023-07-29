@@ -67,12 +67,21 @@ function handleQuantityChange(productId, change) {
   const inputQuantity = cartRow.querySelector('.product-quantity');
 
   let newQuantity = parseInt(inputQuantity.value) + change;
-
-  if (newQuantity < 0) {
-    newQuantity = 0;
-  }
-  inputQuantity.value = newQuantity;
   
+  if (newQuantity <= 0) {
+    newQuantity = 1;
+  }
+
+  const capInputQuantityToStock = () => {
+    const product = cart.find(product => product.id === productId);
+    if (newQuantity > product.quantity) {
+      newQuantity = product.quantity;
+    }
+  }
+
+  capInputQuantityToStock()
+  inputQuantity.value = newQuantity; 
+
   updateQuantity(productId, newQuantity);
   updateCartQuantity();
   calculateFullPrice(cart);

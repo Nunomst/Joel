@@ -1,6 +1,6 @@
-import { postCoupon } from '../services/postCoupon.js';
-import {postCheckout} from '../services/postCheckout.js'
-import {snackbar} from '../components/cart/snackbar.js'
+import { postCoupon }   from '../services/postCoupon.js';
+import {postCheckout}   from '../services/postCheckout.js'
+import {snackbar}       from '../components/cart/snackbar.js'
 
 let discountValue = 0;
 
@@ -24,18 +24,29 @@ export function addToCart(product) {
         cart = [];
     }
 
-    // Verifying if product exists in cart and increment
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-
-    if (existingProductIndex !== -1) {
-        cart[existingProductIndex].totalQuantity += 1;
+    const productInCart = cart.find(item => item.id === product.id);
+    if(productInCart)
+    {
+        if(productInCart.totalQuantity < productInCart.quantity)
+        {
+            productInCart.totalQuantity++;
+        }
+        if(productInCart.totalQuantity > productInCart.quantity)
+        {
+            productInCart.totalQuantity = productInCart.quantity;
+        }
     }
-    else {
-        cart.push({...product, totalQuantity: 1 });
+    else
+    {
+        if(product.quantity === 0){
+            snackbar("Out of stock!", false)
+            return;
+        }
+        cart.push({...product, totalQuantity: 1});
     }
 
     saveCartToLocalStorage(cart);
-}
+} 
 
 // Function to remove product from cart
 export function removeFromCart(productId) {
@@ -56,6 +67,7 @@ export function updateQuantity(productId, newQuantity) {
         }
         return item;
     });
+
     saveCartToLocalStorage(updateCart);
 }
 
@@ -68,11 +80,15 @@ function calculateTotalQuantity(cart){
     if (cart) {
       for (const item of cart) {
         totalCart += item.totalQuantity;
+        if(item.totalQuantity > item.quantity)
+        {
+            item.totalQuantity = item.quantity;
+        }
       }
     }
 
     return totalCart;
-  }
+  } 
   
 // Function to update the quantity in navbar
 export function updateCartQuantity() {
@@ -84,8 +100,8 @@ export function updateCartQuantity() {
         cartQuantityElement.textContent = cartTotal.toString();
     }
 }
-  
 updateCartQuantity();
+//////////////////////////////////////////////////////////////
 
 // Function to update the total price of the product in the cart row
 export function updateTotalPrice(totalPriceElement, productPrice, productQuantity) {
@@ -169,8 +185,7 @@ export async function processCheckout(couponCode){
         })
     );
     const response = couponCode
-    console.log(product)
-    console.log(response)
+
     const checkoutBody = {
         products: product,
         coupon: response,
@@ -178,12 +193,18 @@ export async function processCheckout(couponCode){
     console.log(checkoutBody);
 
     try {
+
         let checkoutReponse = await postCheckout(checkoutBody)
         console.log(checkoutReponse)
-        snackbar("Purchase Sucessful!")
+        if(cart.length === 0){
+            snackbar("ERROR! Invalid Purchase!", false)
+        }
+        else{
+            snackbar("Purchase Successful!", true)
+        }
     } 
     catch (error) {
         console.log('Error', error)
-        snackbar("ERROR! Invalid Purchase!")
+        snackbar("ERROR! Invalid Purchase!", false)
     }
 }

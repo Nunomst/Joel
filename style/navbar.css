@@ -20,6 +20,7 @@
   justify-content: center;
   overflow: hidden;
   z-index: 9999;
+  box-shadow: 0px 3px 62px 0px #cecece;
 }
 
 .cartNavItem{
@@ -213,6 +214,7 @@
     justify-content: center;
     align-items: center;
     height: 100px;
+    margin-bottom: 20px;
   }
   
   .logo-mobile a {

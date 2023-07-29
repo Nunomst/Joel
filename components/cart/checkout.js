@@ -21,12 +21,12 @@ export function checkout() {
           <td class="discount-value"></td>
         </tr>
         <tr>
-          <td>Total</td>
+          <td>Final price:</td>
           <td class="final-price"></td>
         </tr>
       </table>
       <div class="purchase-button">
-        <button>Make Purchase</button>
+        <button class="btn-purchase">Make Purchase</button>
       </div>
       <div class="payment-options">
         <ul>
@@ -48,6 +48,7 @@ export function checkout() {
   const couponInput = checkout.querySelector('input');
   const checkoutBtn = checkout.querySelector('.purchase-button');
 
+
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
     const couponCode = couponInput.value.trim();
@@ -59,7 +60,6 @@ export function checkout() {
     processCheckout(couponInput.value);
   });
 
-
   window.addEventListener('cartUpdated', () => {
     totalPrice();
     finalPrice(totalPrice());
@@ -70,7 +70,11 @@ export function checkout() {
     finalPrice(totalPrice());
   });
 
+
+    // localStorage.setItem('coupon', couponInput.value);
+
+
+
   return checkout;
 }
 
-// RIHMDLL
