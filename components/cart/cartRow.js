@@ -22,10 +22,11 @@ export function cartRow(product) {
         <button class="btn-plus">+</button>
       </div>
     </td>
-    <td>
+    <td class="trash-container">
       <i class="fa-regular fa-trash-can"></i>
     </td>
-    <td class="total-price"></td>
+    <td class="total-price">
+    </td>
   `;
 
   const totalPriceElement = cartRow.querySelector('.total-price');
