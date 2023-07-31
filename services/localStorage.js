@@ -29,15 +29,6 @@ export function addToCart(product) {
     {
         productInCart.totalQuantity = productInCart.totalQuantity < productInCart.quantity ? productInCart.totalQuantity + 1 : productInCart.totalQuantity;
         productInCart.totalQuantity = productInCart.totalQuantity > productInCart.quantity ? productInCart.quantity : productInCart.totalQuantity;
-
-        // if(productInCart.totalQuantity < productInCart.quantity)
-        // {
-        //     productInCart.totalQuantity++;
-        // }
-        // if(productInCart.totalQuantity > productInCart.quantity)
-        // {
-        //     productInCart.totalQuantity = productInCart.quantity;
-        // }
     }
     else
     {
@@ -83,10 +74,6 @@ export function updateQuantity(productId, newQuantity) {
             totalCart += item.totalQuantity;
             item.totalQuantity = item.totalQuantity > item.quantity ? item.quantity : item.totalQuantity;
 
-            // if(item.totalQuantity > item.quantity)
-            // {
-            //     item.totalQuantity = item.quantity;
-            // }
         }
         }
         return totalCart;
