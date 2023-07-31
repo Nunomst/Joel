@@ -8,9 +8,7 @@ import {footer}                 from './components/footer/footer';
 import {handleScroll}           from './logic/scrollLogic';
 import {highlightNavItem}       from './logic/highlightNavItem';
 
-
 let appDiv = document.getElementById('app');
-
 
 window.addEventListener('load', () => {
     appDiv.appendChild(navbarDesktop());

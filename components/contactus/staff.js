@@ -1,19 +1,16 @@
-export  function staffIntro() 
-{
+// Functions to create staff container
+export function staffIntro() {
   let staffIntro = document.createElement('div');
   staffIntro.classList.add('staff')
 
   staffIntro.innerHTML = `
       <h1 class="staff-title">Still not sure? Contact our team and get close and personal</h1>
-      <div class="staff-container">
-      </div>
+      <div class="staff-container"></div>
     `;
   return staffIntro;
 }
 
-
-export  function staff(picture, firstName, lastName) 
-{ 
+export  function staff(picture, firstName, lastName) { 
   let userDiv = document.createElement('div')
   userDiv.classList.add('user');
 

@@ -27,14 +27,17 @@ export function addToCart(product) {
     const productInCart = cart.find(item => item.id === product.id);
     if(productInCart)
     {
-        if(productInCart.totalQuantity < productInCart.quantity)
-        {
-            productInCart.totalQuantity++;
-        }
-        if(productInCart.totalQuantity > productInCart.quantity)
-        {
-            productInCart.totalQuantity = productInCart.quantity;
-        }
+        productInCart.totalQuantity = productInCart.totalQuantity < productInCart.quantity ? productInCart.totalQuantity + 1 : productInCart.totalQuantity;
+        productInCart.totalQuantity = productInCart.totalQuantity > productInCart.quantity ? productInCart.quantity : productInCart.totalQuantity;
+
+        // if(productInCart.totalQuantity < productInCart.quantity)
+        // {
+        //     productInCart.totalQuantity++;
+        // }
+        // if(productInCart.totalQuantity > productInCart.quantity)
+        // {
+        //     productInCart.totalQuantity = productInCart.quantity;
+        // }
     }
     else
     {
@@ -44,7 +47,6 @@ export function addToCart(product) {
         }
         cart.push({...product, totalQuantity: 1});
     }
-
     saveCartToLocalStorage(cart);
 } 
 
@@ -53,7 +55,7 @@ export function removeFromCart(productId) {
     const cart = getCartFromLocalStorage();
 
     const updateCart = cart.filter(item => item.id !== productId);
-
+    
     saveCartToLocalStorage(updateCart)
 }
 
@@ -71,36 +73,38 @@ export function updateQuantity(productId, newQuantity) {
     saveCartToLocalStorage(updateCart);
 }
 
-// This next two functions are about the cart info in navbar
+// This next two functions are about the red cart info in navbar
+    // Function to calculate the total quantity
+    function calculateTotalQuantity(cart){
+        let totalCart = 0;
+    
+        if (cart) {
+        for (const item of cart) {
+            totalCart += item.totalQuantity;
+            item.totalQuantity = item.totalQuantity > item.quantity ? item.quantity : item.totalQuantity;
 
-// Function to calculate the total quantity
-function calculateTotalQuantity(cart){
-    let totalCart = 0;
-  
-    if (cart) {
-      for (const item of cart) {
-        totalCart += item.totalQuantity;
-        if(item.totalQuantity > item.quantity)
-        {
-            item.totalQuantity = item.quantity;
+            // if(item.totalQuantity > item.quantity)
+            // {
+            //     item.totalQuantity = item.quantity;
+            // }
         }
-      }
-    }
+        }
+        return totalCart;
+    } 
+    
+    // Function to update the quantity in navbar
+    export function updateCartQuantity() {
+        let cart = getCartFromLocalStorage();
+        let cartTotal = calculateTotalQuantity(cart);
+        let cartQuantityElement = document.getElementById('lblCartCount');
 
-    return totalCart;
-  } 
-  
-// Function to update the quantity in navbar
-export function updateCartQuantity() {
-    let cart = getCartFromLocalStorage();
-    let cartTotal = calculateTotalQuantity(cart);
-    let cartQuantityElement = document.getElementById('lblCartCount');
+        // cartQuantityElement?.textContent = cartTotal.toString();
 
-    if (cartQuantityElement) {
-        cartQuantityElement.textContent = cartTotal.toString();
+        if (cartQuantityElement) {
+            cartQuantityElement.textContent = cartTotal.toString();
+        }
     }
-}
-updateCartQuantity();
+    updateCartQuantity();
 //////////////////////////////////////////////////////////////
 
 // Function to update the total price of the product in the cart row
@@ -111,8 +115,7 @@ export function updateTotalPrice(totalPriceElement, productPrice, productQuantit
 
 // Function to calculate the full price cart
 export function calculateFullPrice(cart) {
-    if(!cart)
-    {
+    if(!cart){
         cart = [];
     }
     
@@ -121,7 +124,6 @@ export function calculateFullPrice(cart) {
     for (const product of cart) {
         total += product.price * product.totalQuantity;
     }
-
     return total;
 }
 
@@ -130,29 +132,29 @@ export async function getCoupon(couponCode) {
     
     if (couponCode !== '') {
         try {
-          const response = await postCoupon(couponCode);
-          discountValue = parseFloat(response.discount)
-          
-          // Select coupon status
-          const couponStatus = document.querySelector('.coupon-status');
-          couponStatus.textContent = 'Coupon applied successfully!';
-          
-          // Select discount class
-          const discountClass = document.querySelector('.discount-value');
-          discountClass.textContent = `-${discountValue}%`
-          
-          // Select final price class and logic
-          let finalPricee = document.querySelector('.final-price');
-          finalPricee.textContent = `${finalPrice(totalPrice())}`;
-          return couponCode;
-          
+            // Get the coupon
+            const response              = await postCoupon(couponCode);
+            discountValue               = parseFloat(response.discount)
+
+            // Select coupon status
+            const couponStatus          = document.querySelector('.coupon-status');
+            couponStatus.textContent    = 'Coupon applied successfully!';
+
+            // Select discount class
+            const discountClass         = document.querySelector('.discount-value');
+            discountClass.textContent   = `-${discountValue}%`
+
+            // Select final price class and logic
+            let finalPricee             = document.querySelector('.final-price');
+            finalPricee.textContent     = `${finalPrice(totalPrice())}`;
+            return couponCode; 
         } 
         catch (error) {
         console.error('Error applying coupon:', error);
     
         // Select coupon status
-        const couponStatus = document.querySelector('.coupon-status');
-        couponStatus.textContent = 'Invalid coupon code. Please try again.';
+        const couponStatus          = document.querySelector('.coupon-status');
+        couponStatus.textContent    = 'Invalid coupon code. Please try again.';
         return null;
         }
       }
@@ -160,24 +162,22 @@ export async function getCoupon(couponCode) {
 
 // Function to calculate the final price without discount
 export function totalPrice() {
-  const cart = getCartFromLocalStorage();
+    const cart      = getCartFromLocalStorage();
+    let totalPrice  = calculateFullPrice(cart);
 
-  let totalPrice = calculateFullPrice(cart);
+    const totalCartElement        = document.getElementById('total-cart');
+    totalCartElement.textContent  = `${totalPrice.toFixed(2)}€`;
 
-      const totalCartElement = document.getElementById('total-cart');
-      totalCartElement.textContent = `${totalPrice.toFixed(2)}€`;
-
-  return totalPrice;
+    return totalPrice;
 }
 
 // Function to calculate the final price with discount
 export function finalPrice(totalPrice) {
-    
-    let finalCartPrice = totalPrice - (totalPrice * (discountValue / 100)); 
-    let finalPrice = `${finalCartPrice.toFixed(2)}€`
+    let finalCartPrice  = totalPrice - (totalPrice * (discountValue / 100)); 
+    let finalPrice      = `${finalCartPrice.toFixed(2)}€`
 
-        const finalPricee = document.querySelector('.final-price');
-        finalPricee.textContent = `${finalCartPrice.toFixed(2)}€`;
+    const finalPricee       = document.querySelector('.final-price');
+    finalPricee.textContent = `${finalCartPrice.toFixed(2)}€`;
 
     return finalPrice;
 }
@@ -194,13 +194,12 @@ export async function processCheckout(couponCode){
     const response = couponCode
 
     const checkoutBody = {
-        products: product,
-        coupon: response,
+        products:   product,
+        coupon:     response,
     }
     console.log(checkoutBody);
 
     try {
-
         let checkoutReponse = await postCheckout(checkoutBody)
         console.log(checkoutReponse)
         if(cart.length === 0)
@@ -220,15 +219,15 @@ export async function processCheckout(couponCode){
 
 // Function to clear LocalStorage
 export function clearCartLocalStorage() {
-    const cena = document.querySelector('.cart-table');
-    const updateCart = [];
+    const cartTable     = document.querySelector('.cart-table');
+    const updateCart    = [];
 
     saveCartToLocalStorage(updateCart);
     updateCartQuantity();
     
-    cena.innerHTML = 'Your cart is empty.';
+    cartTable.innerHTML = 'Your cart is empty.';
 
-    const checkoutBtn = document.querySelector('.btn-purchase');
+    const checkoutBtn   = document.querySelector('.btn-purchase');
     checkoutBtn.setAttribute('disabled', '');
     checkoutBtn.classList.add("btn-purchase-disabled");
 }

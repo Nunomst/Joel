@@ -1,3 +1,4 @@
+// Function to spawn toast
 export function snackbar(msg, success) {
     let snackbar = document.createElement("div");
     snackbar.setAttribute("id", "snackbar");
@@ -7,12 +8,5 @@ export function snackbar(msg, success) {
 
     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
 
-    if(success)
-    {
-        snackbar.style.backgroundColor = "#4BB543"
-    }
-    else
-    {
-        snackbar.style.backgroundColor = "#DC3545";
-    }
+    snackbar.style.backgroundColor = success ? "#4BB543" : "#DC3545";
 }

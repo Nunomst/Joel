@@ -541,7 +541,7 @@ main{
 
 /* #endregion */
 
-
+/* #region -- Toast style -- */
 
 #snackbar {
   visibility: hidden; 
@@ -586,4 +586,4 @@ main{
   to {bottom: 0; opacity: 0;}
 }
 
-
+/* #endregion -- Toast style -- */

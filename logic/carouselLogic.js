@@ -1,10 +1,11 @@
+// Function that handle all carousel logic
 export function carousel()
 {
   let timer;
   let slideIndex = 1;
 
-  const next = document.getElementsByClassName("next")[0];
-  const prev = document.getElementsByClassName("prev")[0];
+  const next            = document.getElementsByClassName("next")[0];
+  const prev            = document.getElementsByClassName("prev")[0];
   const slidesContainer = document.getElementsByClassName("carousel-container")[0];
 
   function showSlides(n) {

@@ -1,5 +1,6 @@
 import { getCoupon, totalPrice, finalPrice, processCheckout, clearCartLocalStorage, getCartFromLocalStorage } from '../../services/localStorage.js';
 
+// Function to create checkout
 export function checkout() {
   let checkout = document.createElement('div');
   checkout.classList.add('checkout');
@@ -47,12 +48,11 @@ export function checkout() {
   const applyButton = checkout.querySelector('button');
   const couponInput = checkout.querySelector('input');
   const checkoutBtn = checkout.querySelector('.btn-purchase');
-  const cart = getCartFromLocalStorage();
-
+  const cart        = getCartFromLocalStorage();
 
   // Logic to validate coupon
   applyButton.addEventListener('click', async () => {
-    const couponCode = couponInput.value.trim();
+    const couponCode  = couponInput.value.trim();
     const validCoupon = await getCoupon(couponCode);
 
     if(validCoupon != null)
@@ -66,6 +66,7 @@ export function checkout() {
     getCoupon(couponCode)
   });
 
+  // Checkout button event
   checkoutBtn.addEventListener('click', async () => {
     processCheckout(couponInput.value);
     clearCartLocalStorage();
@@ -83,19 +84,17 @@ export function checkout() {
     totalPrice();
     finalPrice(totalPrice());
     
-    const savedCoupon = localStorage.getItem('coupon');
-
+  // Get coupon from localStorage
+  const savedCoupon = localStorage.getItem('coupon');
     if(savedCoupon)
     {
       couponInput.value = savedCoupon;
     }
-
     if(!cart || cart.length === 0)
     {
       checkoutBtn.setAttribute('disabled', '')
       checkoutBtn.classList.add("btn-purchase-disabled");
     }
-  
   });
 
   return checkout;

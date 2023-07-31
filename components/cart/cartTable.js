@@ -2,6 +2,7 @@ import { cartRow } from "./cartRow";
 import { hrRow } from "./hrRow";
 import { getCartFromLocalStorage } from "../../services/localStorage.js";
 
+// Function to create cart table
 export function cartTable() {
   let cartTable = document.createElement('div');
   cartTable.classList.add('cart-table');
@@ -24,16 +25,15 @@ export function cartTable() {
     });
   } 
   else {
-    const emptyCartRow = document.createElement('tr');
-    const emptyCartData = document.createElement('td');
-    emptyCartData.colSpan = 4;
+    const emptyCartRow        = document.createElement('tr');
+    const emptyCartData       = document.createElement('td');
+    emptyCartData.colSpan     = 4;
     emptyCartData.textContent = 'Your cart is empty.';
     emptyCartRow.appendChild(emptyCartData);
     table.appendChild(emptyCartRow);
   }
 
   cartTable.appendChild(table);
-
   cartTable.cartTableElement = table;
 
   return cartTable;

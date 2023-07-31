@@ -1,3 +1,4 @@
+// Function to post checkout
 export async function postCheckout(requestBody) {
     const apiUrl = 'http://127.0.0.1:3333/checkout';
   
@@ -16,10 +17,10 @@ export async function postCheckout(requestBody) {
         console.error('Error Response:', errorData);
         throw new Error(errorData.message);
       }
-  
       return response.json();
-    } catch (error) {
-      console.error('Error:', error);
-      throw error; 
+    } 
+    catch (error) {
+    console.error('Error:', error);
+    throw error; 
     }
-  }
+}

@@ -27,7 +27,6 @@ let personInfo = JSON.parse(localStorage.getItem('personInfo'));
 const staffDiv = appDiv.querySelector(".staff-container");
 
 if (!personInfo)
-
 {
   personInfo = await getPerson();
 
@@ -35,7 +34,6 @@ if (!personInfo)
 }
 
 for (let i = 0; i < 2; i++)
-
 {
   const person = personInfo[i];
 

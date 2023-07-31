@@ -1,5 +1,6 @@
 import { cartTable } from "./cartTable";
 
+// Function to create cart container
 export function cartContainer()
 {
     let cartContainer = document.createElement('div');

@@ -5,6 +5,8 @@ footer {
     padding: 0rem 0;
     width: 100%;
     margin-top: 40px;
+    position: sticky;
+    top: 100%;
   }
   
   .footer-content 
@@ -95,7 +97,7 @@ footer {
   
   /* #endregion -- Footer --*/
 
-  /* #region -- Media Querys --*/
+/* #region -- Media Querys --*/
   @media screen and (max-width: 768px)
   {
     footer 

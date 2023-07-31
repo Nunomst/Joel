@@ -1,3 +1,4 @@
+// Function to remove hr rows
 export function handleHrRowRemove() {
     let deleteBtns = document.querySelectorAll('.fa-trash-can');
     let hrElements = document.querySelectorAll('.hr-row');
@@ -12,4 +13,4 @@ export function handleHrRowRemove() {
     if (deleteBtns.length === 1) {
         hrElements.forEach(hr => hr.remove());
     }
-  }
+}

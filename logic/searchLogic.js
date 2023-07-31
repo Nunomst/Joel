@@ -1,21 +1,21 @@
 import { getProducts } from '../services/getProducts';
 import { createProductCard } from '../components/shop/productsgrid.js';
 
+// Function to search products from seacrh bar
 export async function searchProducts(name) 
 {
-  const products = await getProducts();
-
-  const filteredProducts = products.filter((product) => {
-    const productName = product.name.toLowerCase();
+  const products          = await getProducts();
+  const filteredProducts  = products.filter((product) => {
+    const productName     = product.name.toLowerCase();
     return productName.includes(name.toLowerCase().trim());
   });
 
-  const productsGridContainer = document.querySelector('.products-grid-container');
+  const productsGridContainer     = document.querySelector('.products-grid-container');
   productsGridContainer.innerHTML = '';
 
   if (filteredProducts.length === 0) 
   {
-    const noResultMessage = document.createElement('p');
+    const noResultMessage       = document.createElement('p');
     noResultMessage.textContent = "No results found.";
     productsGridContainer.appendChild(noResultMessage);
   } 

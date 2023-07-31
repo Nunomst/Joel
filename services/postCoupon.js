@@ -1,3 +1,4 @@
+// Function to post coupon
 export async function postCoupon(couponCode) {
     const apiUrl = 'http://127.0.0.1:3333/check-coupon';
 
@@ -15,8 +16,9 @@ export async function postCoupon(couponCode) {
         throw new Error(errorData.message);
       }
       return response.json();
-    } catch (error) {
-      console.error('Error:', error);
-      throw error; 
+    } 
+    catch (error) {
+    console.error('Error:', error);
+    throw error; 
     }
-  }
+}
