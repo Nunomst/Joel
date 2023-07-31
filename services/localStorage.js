@@ -221,13 +221,15 @@ export async function processCheckout(couponCode){
 export function clearCartLocalStorage() {
     const cartTable     = document.querySelector('.cart-table');
     const updateCart    = [];
-
+    const couponStatus  = document.querySelector('.coupon-status');
+    const discountClass = document.querySelector('.discount-value');
     saveCartToLocalStorage(updateCart);
     updateCartQuantity();
     
-    cartTable.innerHTML = 'Your cart is empty.';
-
-    const checkoutBtn   = document.querySelector('.btn-purchase');
+    discountClass.innerHTML = '';
+    cartTable.innerHTML     = 'Your cart is empty.';
+    couponStatus.innerHTML  = '';
+    const checkoutBtn       = document.querySelector('.btn-purchase');
     checkoutBtn.setAttribute('disabled', '');
     checkoutBtn.classList.add("btn-purchase-disabled");
 }

@@ -379,11 +379,6 @@ hr
 
 @media (max-width: 1289px) {
 
-main 
-{
-  height: 100%;
-}
-
 .cart-checkout-container {
   display: flex;
   flex-direction: column;
@@ -520,10 +515,6 @@ main
 
 @media (max-width: 1550px) and (min-width: 1268px) 
 {
-main 
-{
-  height: 100%;
-}
 
 .cart-page
 {
