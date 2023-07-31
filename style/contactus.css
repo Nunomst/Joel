@@ -81,10 +81,10 @@ body {
 .info {
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
   align-items: center;
   align-items: flex-start;
-  max-width: 100vh;
 }
 
 .form {
